@@ -3,48 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gabriel Neri · Engenharia de Software, Automação & IA Aplicada</title>
-  <meta name="description" content="Portfólio de Gabriel Neri — Desenvolvimento de sistemas sob medida, integrações inteligentes, pipelines de dados e IA para empresas.">
+  <title>Gabriel Neri — Sistemas, Automação & IA</title>
+  <meta name="description" content="Portfólio de Gabriel Neri — Desenvolvimento de sistemas sob medida, integrações de WhatsApp, engenharia de dados e IA para empresas.">
   <meta name="robots" content="index, follow">
   
+  <!-- Fontes: Kanit (300 a 900) e JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,600;1,800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #07080b;
-      --bg-alt: #0c0e14;
-      --bg-card: rgba(16, 19, 26, 0.75);
-      --bg-card-hover: rgba(22, 27, 38, 0.9);
+      --bg: #0C0C0C;
+      --bg-white: #FFFFFF;
+      --border-light: #D7E2EA;
+      --text-light: #D7E2EA;
+      --text-dark: #0C0C0C;
+      --text-muted: #8A98A5;
       
-      --border: rgba(255, 255, 255, 0.08);
-      --border-focus: #3ecf8e;
-      --border-glow: rgba(62, 207, 142, 0.35);
+      --emerald: #3ECF8E;
+      --emerald-glow: rgba(62, 207, 142, 0.35);
       
-      --text: #f3f5f8;
-      --text-muted: #8e97a4;
-      --text-dim: #5a6472;
-      
-      --emerald: #3ecf8e;
-      --emerald-light: #6ee7b7;
-      --emerald-dim: rgba(62, 207, 142, 0.12);
-      --emerald-glow: rgba(62, 207, 142, 0.28);
-      
-      --purple: #8b5cf6;
-      --purple-dark: #6d28d9;
-      --purple-glow: rgba(139, 92, 246, 0.35);
-      
-      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-kanit: 'Kanit', sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
-      
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 20px;
-      --radius-xl: 28px;
-      
-      --max-w: 1200px;
     }
 
     * {
@@ -53,43 +34,25 @@
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
+    html, body {
       background-color: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.65;
+      color: var(--text-light);
+      font-family: var(--font-kanit);
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      position: relative;
     }
 
-    /* Ambient Lighting & Mesh Gradients no fundo */
-    .ambient-glow-top {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(62, 207, 142, 0.14) 0%, rgba(139, 92, 246, 0.05) 45%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+    /* Gradient Headings como no design Jack */
+    .hero-heading {
+      background: linear-gradient(180deg, #646973 0%, #BBCCD7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .ambient-glow-mid {
-      position: absolute;
-      top: 1400px;
-      left: 30%;
-      width: 800px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(62, 207, 142, 0.08) 0%, transparent 70%);
-      pointer-events: none;
-      z-index: 0;
+    .hero-heading-emerald {
+      background: linear-gradient(180deg, #8b949e 0%, #3ECF8E 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     a {
@@ -97,1360 +60,1160 @@
       text-decoration: none;
     }
 
-    .wrap {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 32px;
+    /* --- Botão de Contato com Gradiente & Glow Inset do Jack --- */
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 42px;
+      border-radius: 9999px;
+      background: linear-gradient(123deg, #071c12 7%, #10b981 37%, #047857 72%, #3ecf8e 100%);
+      box-shadow: 0px 4px 14px rgba(16, 185, 129, 0.35), 4px 4px 12px rgba(62, 207, 142, 0.4) inset;
+      outline: 2px solid #ffffff;
+      outline-offset: -3px;
+      color: #ffffff;
+      font-family: var(--font-kanit);
+      font-size: 15px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.25s ease;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .contact-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0px 6px 24px rgba(62, 207, 142, 0.6), 4px 4px 14px rgba(62, 207, 142, 0.6) inset;
+    }
+
+    /* Botão Live Project Ghost */
+    .live-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 28px;
+      border-radius: 9999px;
+      border: 2px solid var(--border-light);
+      color: var(--text-light);
+      font-family: var(--font-kanit);
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .live-btn:hover {
+      background: rgba(215, 226, 234, 0.15);
+      border-color: #ffffff;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* ==========================================================================
+       1. HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       position: relative;
+      overflow: clip;
+      padding: 0 24px;
+    }
+
+    @media (min-width: 768px) {
+      .hero-section {
+        padding: 0 48px;
+      }
+    }
+
+    /* Navbar */
+    .hero-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 28px;
+      z-index: 20;
+    }
+
+    .hero-nav a {
+      color: var(--text-light);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 14px;
+      transition: opacity 0.2s ease;
+    }
+
+    @media (min-width: 768px) {
+      .hero-nav a { font-size: 18px; }
+    }
+    @media (min-width: 1024px) {
+      .hero-nav a { font-size: 1.35rem; }
+    }
+
+    .hero-nav a:hover {
+      opacity: 0.7;
+    }
+
+    /* Massive Heading */
+    .hero-heading-container {
+      width: 100%;
+      overflow: hidden;
+      margin-top: 14px;
       z-index: 1;
     }
 
-    /* --- Tipografia de Destaque --- */
-    .serif-accent {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: 0.01em;
+    @media (min-width: 768px) {
+      .hero-heading-container {
+        margin-top: -24px;
+      }
     }
 
-    .pill-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      background: rgba(62, 207, 142, 0.08);
-      border: 1px solid rgba(62, 207, 142, 0.28);
-      border-radius: 100px;
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
+    .hero-h1 {
+      font-size: clamp(3.8rem, 16vw, 240px);
+      font-weight: 900;
       text-transform: uppercase;
-      color: var(--emerald-light);
-      margin-bottom: 20px;
-    }
-
-    /* --- Topo / Navbar --- */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(7, 8, 11, 0.8);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: all 0.25s ease;
-    }
-
-    header.rolou {
-      background: rgba(7, 8, 11, 0.95);
-      border-bottom-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
-    }
-
-    .logo-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      font-size: 17px;
-      letter-spacing: -0.02em;
-    }
-
-    .logo-symbol {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #161b26 0%, #0d1017 100%);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
-      color: var(--emerald);
-      box-shadow: 0 0 16px rgba(62, 207, 142, 0.2);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-
-    .nav-links a {
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    /* --- Botões --- */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 12px 24px;
-      font-size: 14px;
-      font-weight: 600;
-      border-radius: 100px;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      border: 1px solid transparent;
+      letter-spacing: -0.04em;
+      line-height: 0.92;
       white-space: nowrap;
-    }
-
-    .btn-purple {
-      background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
-      color: #ffffff;
-      box-shadow: 0 0 24px var(--purple-glow);
-    }
-
-    .btn-purple:hover {
-      background: linear-gradient(135deg, #9d74ff 0%, #7c3aed 100%);
-      box-shadow: 0 0 32px rgba(139, 92, 246, 0.55);
-      transform: translateY(-2px);
-    }
-
-    .btn-glass {
-      background: rgba(255, 255, 255, 0.04);
-      border-color: var(--border);
-      color: var(--text);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-glass:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--border-focus);
-      color: #fff;
-      transform: translateY(-2px);
-    }
-
-    .btn-mini {
-      padding: 8px 14px;
-      font-size: 12.5px;
-      border-radius: var(--radius-sm);
-    }
-
-    /* --- Hero Section --- */
-    .hero-section {
-      padding: 90px 0 70px;
-      position: relative;
-    }
-
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .hero-title {
-      font-size: clamp(38px, 5.2vw, 64px);
-      font-weight: 800;
-      line-height: 1.12;
-      letter-spacing: -0.035em;
-      margin-bottom: 24px;
-    }
-
-    .hero-title .serif-accent {
-      font-size: 1.18em;
-      font-weight: 400;
-      color: var(--emerald-light);
-    }
-
-    .hero-desc {
-      font-size: 17.5px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      max-width: 560px;
-    }
-
-    .hero-metrics-row {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      margin-top: 36px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border);
-    }
-
-    .metric-unit h3 {
-      font-size: 32px;
-      font-weight: 800;
-      color: var(--text);
-      font-family: var(--font-mono);
-      letter-spacing: -0.03em;
-    }
-
-    .metric-unit p {
-      font-size: 13px;
-      color: var(--text-dim);
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    /* Hero Right: Card Visual */
-    .hero-visual-card {
-      position: relative;
-      background: radial-gradient(circle at center, rgba(16, 22, 32, 0.9) 0%, rgba(8, 10, 15, 0.95) 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 44px 36px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(62, 207, 142, 0.06);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-      overflow: hidden;
-    }
-
-    .hero-visual-card::before {
-      content: '';
-      position: absolute;
-      inset: -1px;
-      border-radius: var(--radius-xl);
-      padding: 1px;
-      background: linear-gradient(135deg, rgba(62, 207, 142, 0.4), transparent 50%, rgba(139, 92, 246, 0.3));
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-
-    .code-bracket-symbol {
-      width: 100px;
-      height: 100px;
-      border-radius: 24px;
-      background: linear-gradient(135deg, rgba(62, 207, 142, 0.15), rgba(139, 92, 246, 0.1));
-      border: 1px solid rgba(62, 207, 142, 0.3);
-      display: grid;
-      place-items: center;
-      font-size: 38px;
-      font-weight: 700;
-      color: var(--emerald);
-      box-shadow: 0 0 40px rgba(62, 207, 142, 0.25);
-      margin-bottom: 24px;
-    }
-
-    .floating-glass-box {
-      background: rgba(12, 16, 24, 0.85);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 18px 22px;
-      backdrop-filter: blur(12px);
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      max-width: 320px;
-      margin-bottom: 24px;
-    }
-
-    /* --- Sections Gerais --- */
-    section {
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .sec-heading {
-      font-size: clamp(28px, 4.2vw, 44px);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .sec-heading .serif-accent {
-      font-size: 1.15em;
-      color: var(--emerald-light);
-    }
-
-    .section-title-center {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 52px;
-    }
-
-    /* --- Section: About Me (com Diagrama Orbital) --- */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 56px;
-      align-items: center;
-    }
-
-    .about-text {
-      font-size: 16.5px;
-      color: var(--text-muted);
-      line-height: 1.8;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .about-text strong {
-      color: var(--text);
-    }
-
-    .link-arrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--emerald);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      transition: gap 0.2s;
-    }
-
-    .link-arrow:hover {
-      gap: 12px;
-      text-decoration: underline;
-    }
-
-    .orbit-diagram {
-      position: relative;
       width: 100%;
-      max-width: 440px;
-      aspect-ratio: 1;
-      margin: 0 auto;
-      display: grid;
-      place-items: center;
+      user-select: none;
     }
 
-    .orbit-ring {
+    /* Hero Center Interactive 3D Visual / Portrait com Magnetic Effect */
+    .hero-portrait-wrap {
       position: absolute;
-      border-radius: 50%;
-      border: 1px dashed rgba(255, 255, 255, 0.1);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      width: 300px;
+      bottom: 0;
+      pointer-events: auto;
     }
 
-    .ring-1 { width: 90%; height: 90%; }
-    .ring-2 { width: 65%; height: 65%; }
-    .ring-3 { width: 40%; height: 40%; }
+    @media (min-width: 640px) {
+      .hero-portrait-wrap { width: 400px; }
+    }
+    @media (min-width: 768px) {
+      .hero-portrait-wrap { width: 490px; }
+    }
+    @media (min-width: 1024px) {
+      .hero-portrait-wrap { width: 560px; }
+    }
 
-    .orbit-center {
+    .hero-portrait-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8));
+      transition: transform 0.3s ease-out;
+      will-change: transform;
+    }
+
+    /* Hero Bottom Bar */
+    .hero-bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 36px;
+      z-index: 20;
+    }
+
+    .hero-bottom-left {
+      color: var(--text-light);
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      line-height: 1.35;
+      font-size: clamp(0.78rem, 1.4vw, 1.4rem);
+      max-width: 170px;
+    }
+
+    @media (min-width: 640px) {
+      .hero-bottom-left { max-width: 240px; }
+    }
+    @media (min-width: 768px) {
+      .hero-bottom-left { max-width: 280px; }
+    }
+
+    /* ==========================================================================
+       2. MARQUEE SECTION (Scroll Horizontal Conectado ao Scroll da Página)
+       ========================================================================== */
+    .marquee-section {
+      background: #0C0C0C;
+      padding: 120px 0 60px;
+      overflow: hidden;
       position: relative;
-      width: 76px;
-      height: 76px;
+    }
+
+    .marquee-row {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 16px;
+      width: max-content;
+      will-change: transform;
+      user-select: none;
+    }
+
+    .marquee-tile {
+      width: 420px;
+      height: 270px;
       border-radius: 20px;
-      background: linear-gradient(135deg, #1b2230 0%, #0d111a 100%);
-      border: 1px solid var(--border-focus);
-      display: grid;
-      place-items: center;
-      font-family: var(--font-mono);
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--emerald);
-      box-shadow: 0 0 30px rgba(62, 207, 142, 0.3);
-      z-index: 2;
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #181b22;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
-    .orbit-node {
-      position: absolute;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      transition: all 0.25s;
-    }
-
-    .orbit-node:hover {
+    .marquee-tile:hover {
+      transform: scale(1.03);
       border-color: var(--emerald);
-      transform: scale(1.15);
     }
 
-    .orbit-node img { width: 22px; height: 22px; }
-
-    .node-top { top: 6%; left: 50%; transform: translateX(-50%); }
-    .node-bottom { bottom: 6%; left: 50%; transform: translateX(-50%); }
-    .node-left { left: 6%; top: 50%; transform: translateY(-50%); }
-    .node-right { right: 6%; top: 50%; transform: translateY(-50%); }
-    .node-top-right { top: 22%; right: 18%; }
-    .node-bottom-left { bottom: 22%; left: 18%; }
-
-    /* --- Section: Tech Toolbox --- */
-    .toolbox-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+    .marquee-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
-    .toolbox-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      backdrop-filter: blur(14px);
-      transition: all 0.3s ease;
+    .marquee-badge {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(12, 12, 12, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--emerald);
+      border: 1px solid rgba(62, 207, 142, 0.3);
+    }
+
+    /* ==========================================================================
+       3. ABOUT SECTION (Scroll Driven Opacity Character Reveal & 3D Objects)
+       ========================================================================== */
+    .about-section {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .toolbox-card:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-focus);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(62, 207, 142, 0.08);
-    }
-
-    .card-nodes-visual {
-      display: flex;
-      align-items: center;
       justify-content: center;
-      gap: 12px;
-      height: 64px;
-      margin-bottom: 20px;
-    }
-
-    .mini-node {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      display: grid;
-      place-items: center;
-    }
-
-    .mini-node img { width: 20px; height: 20px; }
-
-    .toolbox-card h4 {
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--emerald-light);
-      margin-bottom: 10px;
-      font-family: var(--font-serif);
-      font-style: italic;
-    }
-
-    .toolbox-card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* --- Faixa / Marquee --- */
-    .marquee-banner {
-      background: linear-gradient(90deg, #6d28d9 0%, #7c3aed 50%, #4c1d95 100%);
-      padding: 20px 0;
-      margin: 30px 0;
-      transform: rotate(-1deg);
-      box-shadow: 0 10px 40px rgba(109, 40, 217, 0.35);
+      align-items: center;
+      text-align: center;
+      padding: 120px 24px;
+      position: relative;
       overflow: hidden;
     }
 
-    .marquee-track {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      gap: 48px;
-      font-weight: 800;
-      font-size: 19px;
-      color: #ffffff;
-      white-space: nowrap;
+    /* Decorative 3D Corner Elements */
+    .corner-dec {
+      position: absolute;
+      pointer-events: none;
+      z-index: 5;
+      filter: drop-shadow(0 20px 30px rgba(0,0,0,0.7));
+      transition: transform 0.3s ease;
     }
 
-    /* --- SECTION: PROJETOS REAIS & CASES (Carrossel Horizontal de Scroll) --- */
-    .cases-header-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 20px;
-      margin-bottom: 36px;
+    .dec-top-left {
+      top: 5%;
+      left: 3%;
+      width: clamp(110px, 14vw, 210px);
     }
 
-    .carousel-nav-btns {
-      display: flex;
-      gap: 12px;
+    .dec-top-right {
+      top: 5%;
+      right: 3%;
+      width: clamp(110px, 14vw, 210px);
     }
 
-    .carousel-btn {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      color: var(--text);
-      display: grid;
-      place-items: center;
-      cursor: pointer;
-      transition: all 0.2s;
+    .dec-bottom-left {
+      bottom: 8%;
+      left: 5%;
+      width: clamp(100px, 12vw, 180px);
     }
 
-    .carousel-btn:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--emerald);
-      color: var(--emerald);
+    .dec-bottom-right {
+      bottom: 8%;
+      right: 5%;
+      width: clamp(110px, 14vw, 220px);
     }
 
-    .horizontal-scroll-track {
-      display: flex;
-      gap: 24px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding-bottom: 24px;
-      scrollbar-width: thin;
-      scrollbar-color: var(--border) transparent;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .horizontal-scroll-track::-webkit-scrollbar {
-      height: 6px;
-    }
-
-    .horizontal-scroll-track::-webkit-scrollbar-thumb {
-      background: var(--border);
-      border-radius: 10px;
-    }
-
-    .case-card-h {
-      flex: 0 0 380px;
-      scroll-snap-align: start;
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.3s ease;
-    }
-
-    .case-card-h:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-focus);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    }
-
-    .case-tag {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--emerald);
-      background: var(--emerald-dim);
-      padding: 4px 10px;
-      border-radius: var(--radius-sm);
-      margin-bottom: 16px;
-    }
-
-    .case-card-h h3 {
-      font-size: 21px;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      margin-bottom: 12px;
-    }
-
-    .case-card-h p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin-bottom: 24px;
-    }
-
-    .chips-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: auto;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-    }
-
-    .chip-tag {
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.03);
-      padding: 3px 8px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-    }
-
-    /* --- SECTION: DEMOS PÚBLICAS POR NICHO (Com Filtros) --- */
-    .niche-filters {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 44px;
-    }
-
-    .niche-btn {
-      padding: 8px 18px;
-      border-radius: 100px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 13.5px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .niche-btn:hover {
-      background: rgba(255, 255, 255, 0.07);
-      color: var(--text);
-    }
-
-    .niche-btn.active {
-      background: var(--emerald-dim);
-      border-color: var(--emerald);
-      color: var(--emerald-light);
-      font-weight: 600;
-    }
-
-    .demos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 24px;
-    }
-
-    .demo-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: all 0.25s ease;
-    }
-
-    .demo-item:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--border-focus);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
-    }
-
-    .demo-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      margin-bottom: 12px;
-    }
-
-    .demo-head h4 {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .demo-niche-badge {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-      background: rgba(255, 255, 255, 0.03);
-      padding: 3px 9px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-    }
-
-    .demo-item p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 22px;
-    }
-
-    .demo-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-    }
-
-    .demo-link-btn {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--emerald);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: gap 0.2s;
-    }
-
-    .demo-link-btn:hover {
-      gap: 10px;
-      text-decoration: underline;
-    }
-
-    /* --- CTA Final & Footer --- */
-    .cta-banner-section {
-      padding: 100px 0 60px;
-      text-align: center;
-    }
-
-    .cta-banner-title {
-      font-size: clamp(34px, 5.5vw, 64px);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
-    }
-
-    .cta-banner-title .serif-accent {
-      font-size: 1.2em;
-      color: var(--emerald-light);
-    }
-
-    .cta-banner-desc {
-      font-size: 17px;
-      color: var(--text-muted);
-      max-width: 540px;
-      margin: 0 auto 36px;
-    }
-
-    footer {
-      padding: 70px 0 40px;
-      border-top: 1px solid var(--border);
-      background: #050608;
-    }
-
-    .footer-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
+    .about-heading {
+      font-size: clamp(3.2rem, 11vw, 150px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.04em;
+      line-height: 1;
       margin-bottom: 48px;
     }
 
-    .footer-big-question {
-      font-size: clamp(24px, 3.2vw, 36px);
+    /* Animated Character Opacity Paragraph */
+    .about-char-p {
+      color: var(--text-light);
+      font-weight: 500;
+      line-height: 1.7;
+      max-width: 640px;
+      font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+      margin: 0 auto 56px;
+      position: relative;
+    }
+
+    .char-span {
+      display: inline;
+      transition: opacity 0.15s ease-out;
+      opacity: 0.2;
+    }
+
+    .char-span.revealed {
+      opacity: 1;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    /* ==========================================================================
+       4. SERVICES SECTION (White Background, Huge Numbers, Rounded Corners)
+       ========================================================================== */
+    .services-section {
+      background-color: var(--bg-white);
+      color: var(--text-dark);
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      padding: 110px 24px 140px;
+      position: relative;
+      z-index: 5;
+    }
+
+    @media (min-width: 768px) {
+      .services-section {
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+        padding: 140px 48px 180px;
+      }
+    }
+
+    .services-title {
+      font-size: clamp(3.2rem, 11vw, 150px);
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 72px;
+      color: var(--text-dark);
+    }
+
+    .services-list {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-item {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 44px 0;
+      border-top: 1px solid rgba(12, 12, 12, 0.15);
+      align-items: center;
+      transition: transform 0.25s ease;
+    }
+
+    @media (min-width: 768px) {
+      .service-item {
+        grid-template-columns: 200px 1fr;
+        gap: 48px;
+        padding: 48px 0;
+      }
+    }
+
+    .service-item:hover {
+      transform: translateX(8px);
+    }
+
+    .service-num {
+      font-size: clamp(3.2rem, 9vw, 130px);
+      font-weight: 900;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--text-dark);
+      user-select: none;
+    }
+
+    .service-content h3 {
+      font-size: clamp(1.3rem, 2.4vw, 2.2rem);
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      text-align: right;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+      color: var(--text-dark);
     }
 
-    .footer-big-question .serif-accent {
-      font-size: 1.18em;
-      color: var(--emerald-light);
+    .service-content p {
+      font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--text-dark);
+      opacity: 0.75;
+      max-width: 680px;
     }
 
-    .footer-bottom-bar {
+    /* ==========================================================================
+       5. PROJECTS SECTION (Dark Stacking Cards com Scaled Pinning)
+       ========================================================================== */
+    .projects-section {
+      background-color: var(--bg);
+      border-top-left-radius: 50px;
+      border-top-right-radius: 50px;
+      margin-top: -50px;
+      padding: 100px 20px 140px;
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (min-width: 768px) {
+      .projects-section {
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+        margin-top: -60px;
+        padding: 120px 40px 160px;
+      }
+    }
+
+    .projects-heading {
+      font-size: clamp(3.2rem, 11vw, 150px);
+      font-weight: 900;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 72px;
+    }
+
+    /* Container de Stacking Cards */
+    .stack-cards-container {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    .stack-card {
+      position: sticky;
+      top: 100px;
+      background: #0C0C0C;
+      border: 2px solid var(--border-light);
+      border-radius: 40px;
+      padding: 28px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+      transition: transform 0.3s ease-out;
+      will-change: transform;
+    }
+
+    @media (min-width: 640px) {
+      .stack-card {
+        border-radius: 50px;
+        padding: 36px;
+      }
+    }
+    @media (min-width: 768px) {
+      .stack-card {
+        border-radius: 60px;
+        padding: 44px;
+        top: 120px;
+      }
+    }
+
+    /* Card Top Row */
+    .card-top-row {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(215, 226, 234, 0.15);
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: baseline;
       gap: 20px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      flex-wrap: wrap;
+    }
+
+    .card-big-num {
+      font-size: clamp(2.8rem, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--text-light);
+    }
+
+    .card-titles h3 {
+      font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .card-titles span {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Card Image Grid: 40% col1 (2 stacked) + 60% col2 (1 tall) */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .card-grid {
+        grid-template-columns: 0.4fr 0.6fr;
+        gap: 24px;
+      }
+    }
+
+    .card-col-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .img-box {
+      border-radius: 30px;
+      overflow: hidden;
+      background: #141720;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .img-box { border-radius: 40px; }
+    }
+    @media (min-width: 768px) {
+      .img-box { border-radius: 46px; }
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .img-box:hover img {
+      transform: scale(1.04);
+    }
+
+    .col1-img-top {
+      height: clamp(140px, 16vw, 240px);
+    }
+
+    .col1-img-bot {
+      height: clamp(170px, 22vw, 340px);
+    }
+
+    .card-col-right .img-box {
+      height: 100%;
+      min-height: 330px;
+    }
+
+    /* ==========================================================================
+       6. FOOTER
+       ========================================================================== */
+    footer {
+      background: #0C0C0C;
+      padding: 90px 24px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+    }
+
+    .footer-title {
+      font-size: clamp(2rem, 5vw, 60px);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .footer-nav a {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover {
+      color: var(--emerald);
+    }
+
+    .footer-bottom {
       font-size: 13px;
       color: var(--text-dim);
-    }
-
-    .social-pills {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-pill {
-      padding: 6px 14px;
-      border-radius: 100px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: all 0.2s;
-    }
-
-    .social-pill:hover {
-      border-color: var(--emerald);
-      color: var(--text);
-    }
-
-    /* --- Responsividade --- */
-    @media (max-width: 990px) {
-      .hero-layout, .about-grid, .footer-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .footer-big-question {
-        text-align: left;
-      }
-      .toolbox-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-      .case-card-h {
-        flex: 0 0 320px;
-      }
-      .nav-links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .toolbox-grid {
-        grid-template-columns: 1fr;
-      }
-      .wrap {
-        padding: 0 20px;
-      }
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 32px;
+      font-family: var(--font-mono);
     }
   </style>
 </head>
 <body>
 
-  <div class="ambient-glow-top"></div>
-  <div class="ambient-glow-mid"></div>
+  <!-- ==========================================================================
+       1. HERO SECTION
+       ========================================================================== -->
+  <section class="hero-section" id="topo">
+    <!-- Navbar -->
+    <nav class="hero-nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener">Contact</a>
+    </nav>
 
-  <!-- Topo / Navbar -->
-  <header id="topo-bar">
-    <div class="wrap">
-      <div class="nav-inner">
-        <a href="#" class="logo-box">
-          <div class="logo-symbol">&lt;/&gt;</div>
-          <span>Gabriel Neri</span>
-        </a>
-        <nav class="nav-links">
-          <a href="#sobre">Sobre Mim</a>
-          <a href="#toolbox">Tech Toolbox</a>
-          <a href="#cases">Cases Reais</a>
-          <a href="#demos">Demonstrações por Nicho</a>
-          <a href="#contato" class="btn btn-purple btn-mini">Falar no WhatsApp</a>
-        </nav>
-      </div>
+    <!-- Massive Heading: Hi, i'm gabriel -->
+    <div class="hero-heading-container">
+      <h1 class="hero-h1 hero-heading">
+        Hi, i&apos;m gabriel
+      </h1>
     </div>
-  </header>
 
-  <!-- Hero Section -->
-  <div class="hero-section">
-    <div class="wrap">
-      <div class="hero-layout">
-        
-        <!-- Coluna Esquerda -->
-        <div>
-          <h1 class="hero-title">
-            Do <span class="serif-accent">Esboço</span> à Escala — Construo Sistemas que <span class="serif-accent">Geram Resultado</span>.
-          </h1>
-          <p class="hero-desc">
-            Engenharia de Software, automações de vendas e pipelines de IA aplicados a operações reais. Do banco de dados à interface em produção.
-          </p>
-          <div>
-            <a class="btn btn-purple" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener">
-              Iniciar Projeto no WhatsApp →
-            </a>
-          </div>
-
-          <div class="hero-metrics-row">
-            <div class="metric-unit">
-              <h3>100%</h3>
-              <p>Código Próprio</p>
-            </div>
-            <div class="metric-unit">
-              <h3>24/7</h3>
-              <p>Operação Ativa</p>
-            </div>
-            <div class="metric-unit">
-              <h3>Zero</h3>
-              <p>Mensalidade Oculta</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Coluna Direita -->
-        <div>
-          <div class="hero-visual-card">
-            <div class="code-bracket-symbol">&lt;/&gt;</div>
-            <div class="floating-glass-box">
-              Especialista em criar portais web, pipelines em Python, automações de WhatsApp e inteligência artificial aplicada para empresas.
-            </div>
-            <a class="btn btn-glass" href="#cases">
-              Explorar Projetos &amp; Demos ↓
-            </a>
-          </div>
-        </div>
-
-      </div>
+    <!-- Center Magnetic Portrait / Visual Asset -->
+    <div class="hero-portrait-wrap" id="magnet-portrait">
+      <img 
+        src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png" 
+        alt="Gabriel Neri - 3D & Developer"
+        class="hero-portrait-img"
+        id="portrait-img"
+      >
     </div>
-  </div>
 
-  <!-- Section: About Me (com Diagrama Orbital) -->
-  <section id="sobre">
-    <div class="wrap">
-      <div class="about-grid">
-        
-        <!-- Texto Sobre -->
-        <div>
-          <div class="pill-badge">Sobre Mim</div>
-          <h2 class="sec-heading">
-            CONHEÇA O TRABALHO DE <span class="serif-accent">GABRIEL NERI</span>
-          </h2>
-          <div class="about-text">
-            <p>
-              Sou desenvolvedor de <strong>Software, Automação e Dados</strong> baseado em Recife-PE. Crio soluções que conectam ponta a ponta: do armazenamento seguro no banco de dados até a experiência do usuário final.
-            </p>
-            <p>
-              Tenho sólida experiência com <strong>Python, React, PostgreSQL, Docker e IA aplicada</strong>, desenvolvendo desde sistemas complexos de gestão de obras até fluxos de atendimento com WhatsApp que dobram volume de conversão.
-            </p>
-            <p>
-              Tecnologia para mim não é sobre complexidade: é sobre <strong>resolver gargalos, poupar tempo e colocar código estável no ar</strong>.
-            </p>
-          </div>
-          <a class="link-arrow" href="#toolbox">
-            Conhecer Stack Técnico &amp; Ferramentas →
-          </a>
-        </div>
-
-        <!-- Diagrama Orbital de Tecnologias -->
-        <div>
-          <div class="orbit-diagram">
-            <div class="orbit-ring ring-1"></div>
-            <div class="orbit-ring ring-2"></div>
-            <div class="orbit-ring ring-3"></div>
-            
-            <div class="orbit-center">&lt;/&gt;</div>
-
-            <div class="orbit-node node-top" title="Python">
-              <img src="https://cdn.simpleicons.org/python/3ECF8E" alt="Python">
-            </div>
-            <div class="orbit-node node-right" title="React">
-              <img src="https://cdn.simpleicons.org/react/3ECF8E" alt="React">
-            </div>
-            <div class="orbit-node node-bottom" title="PostgreSQL">
-              <img src="https://cdn.simpleicons.org/postgresql/3ECF8E" alt="PostgreSQL">
-            </div>
-            <div class="orbit-node node-left" title="Docker">
-              <img src="https://cdn.simpleicons.org/docker/3ECF8E" alt="Docker">
-            </div>
-            <div class="orbit-node node-top-right" title="n8n">
-              <img src="https://cdn.simpleicons.org/n8n/3ECF8E" alt="n8n">
-            </div>
-            <div class="orbit-node node-bottom-left" title="Claude / IA">
-              <img src="https://cdn.simpleicons.org/anthropic/3ECF8E" alt="Claude">
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Section: My Tech Toolbox -->
-  <section id="toolbox" style="background: rgba(10, 12, 16, 0.4);">
-    <div class="wrap">
-      <div class="section-title-center">
-        <div class="pill-badge">Skills &amp; Ferramentas</div>
-        <h2 class="sec-heading">MEU TECH <span class="serif-accent">TOOLBOX</span></h2>
-        <p style="color: var(--text-muted); font-size: 16px;">Arquitetura moderna e ferramentas consolidadas para alta performance e confiabilidade.</p>
-      </div>
-
-      <div class="toolbox-grid">
-        <div class="toolbox-card">
-          <div>
-            <div class="card-nodes-visual">
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/react/3ECF8E" alt="React"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/threedotjs/3ECF8E" alt="Three.js"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/html5/3ECF8E" alt="HTML5"></div>
-            </div>
-            <h4>Frontend &amp; Portais</h4>
-            <p>Interfaces em React, dashboards interativos, visualizadores 3D no navegador e páginas institucionais ultra-rápidas.</p>
-          </div>
-        </div>
-
-        <div class="toolbox-card">
-          <div>
-            <div class="card-nodes-visual">
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/python/3ECF8E" alt="Python"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/fastapi/3ECF8E" alt="FastAPI"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/flask/3ECF8E" alt="Flask"></div>
-            </div>
-            <h4>Backend &amp; APIs</h4>
-            <p>Servidores assíncronos, rotas de alto desempenho, processamento de dados e autenticação segura com Python e Node.js.</p>
-          </div>
-        </div>
-
-        <div class="toolbox-card">
-          <div>
-            <div class="card-nodes-visual">
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/postgresql/3ECF8E" alt="PostgreSQL"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/sqlite/3ECF8E" alt="SQLite"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/docker/3ECF8E" alt="Docker"></div>
-            </div>
-            <h4>Bancos &amp; DevOps</h4>
-            <p>Modelagem relacional com PostgreSQL, isolamento seguro em containers Docker e backups automáticos periódicos.</p>
-          </div>
-        </div>
-
-        <div class="toolbox-card">
-          <div>
-            <div class="card-nodes-visual">
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/n8n/3ECF8E" alt="n8n"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/whatsapp/3ECF8E" alt="WhatsApp"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/githubactions/3ECF8E" alt="Webhooks"></div>
-            </div>
-            <h4>Automações Comerciais</h4>
-            <p>Workflows em n8n e webhooks de WhatsApp para atendimento 24h, agendamento de consultas e pedidos de entrega.</p>
-          </div>
-        </div>
-
-        <div class="toolbox-card">
-          <div>
-            <div class="card-nodes-visual">
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/anthropic/3ECF8E" alt="Claude"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/openai/3ECF8E" alt="OpenAI"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/powerbi/3ECF8E" alt="Power BI"></div>
-            </div>
-            <h4>IA Aplicada &amp; BI</h4>
-            <p>Agentes inteligentes para triagem de conhecimento, síntese de documentos e dashboards de métricas consolidadas.</p>
-          </div>
-        </div>
-
-        <div class="toolbox-card">
-          <div>
-            <div class="card-nodes-visual">
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/linux/3ECF8E" alt="Linux"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/git/3ECF8E" alt="Git"></div>
-              <div class="mini-node"><img src="https://cdn.simpleicons.org/github/3ECF8E" alt="GitHub"></div>
-            </div>
-            <h4>Deploy &amp; Operação</h4>
-            <p>Servidores VPS Linux, versionamento com Git e hospedagem estática via GitHub Pages com SSL automático.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Marquee Banner -->
-  <div class="marquee-banner">
-    <div class="marquee-track">
-      <div class="marquee-item"><span>PYTHON</span></div>
-      <div class="marquee-item"><span>•</span></div>
-      <div class="marquee-item"><span>REACT</span></div>
-      <div class="marquee-item"><span>•</span></div>
-      <div class="marquee-item"><span>POSTGRESQL</span></div>
-      <div class="marquee-item"><span>•</span></div>
-      <div class="marquee-item"><span>DOCKER</span></div>
-      <div class="marquee-item"><span>•</span></div>
-      <div class="marquee-item"><span>CLAUDE AI</span></div>
-      <div class="marquee-item"><span>•</span></div>
-      <div class="marquee-item"><span>n8n</span></div>
-      <div class="marquee-item"><span>•</span></div>
-      <div class="marquee-item"><span>POWER BI</span></div>
-      <div class="marquee-item"><span>•</span></div>
-      <div class="marquee-item"><span>WHATSAPP API</span></div>
-    </div>
-  </div>
-
-  <!-- SECTION: PROJETOS REAIS & CASES (Scroll Horizontal da Esquerda para a Direita) -->
-  <section id="cases">
-    <div class="wrap">
-      <div class="cases-header-row">
-        <div>
-          <div class="pill-badge">Cases &amp; Engenharia</div>
-          <h2 class="sec-heading">PROJETOS EM QUE <span class="serif-accent">PARTICIPEI &amp; CONSTRUÍ</span></h2>
-          <p style="color: var(--text-muted); font-size: 15.5px; max-width: 600px;">Deslize para navegar entre os sistemas, pipelines e aplicações desenvolvidas.</p>
-        </div>
-        <div class="carousel-nav-btns">
-          <button class="carousel-btn" id="btn-prev" aria-label="Voltar">←</button>
-          <button class="carousel-btn" id="btn-next" aria-label="Avançar">→</button>
-        </div>
-      </div>
-
-      <!-- Trilha Horizontal Deslizável -->
-      <div class="horizontal-scroll-track" id="cases-track">
-        
-        <!-- Case 1: BIMAIS -->
-        <div class="case-card-h">
-          <div>
-            <span class="case-tag">Engenharia &amp; BIM 3D</span>
-            <h3>BIMAIS — Gestão de Obras com Viewer 3D</h3>
-            <p>Plataforma web de acompanhamento e medição de obras com renderização 3D de modelos IFC no navegador. 12.000+ linhas de código operadas em container Docker 24/7 com backup diário.</p>
-          </div>
-          <div class="chips-row">
-            <span class="chip-tag">Python / Flask</span>
-            <span class="chip-tag">PostgreSQL</span>
-            <span class="chip-tag">Three.js</span>
-            <span class="chip-tag">Docker</span>
-          </div>
-        </div>
-
-        <!-- Case 2: Pipeline 8 Fontes -->
-        <div class="case-card-h">
-          <div>
-            <span class="case-tag">Data Engineering &amp; BI</span>
-            <h3>Pipeline de Leads — 8 Fontes</h3>
-            <p>Ingestão diária automatizada de métricas de tráfego e vendas (Meta Ads, TikTok, GA4, Hotmart) em um modelo único que calcula o ROI real por campanha.</p>
-          </div>
-          <div class="chips-row">
-            <span class="chip-tag">Python</span>
-            <span class="chip-tag">PostgreSQL</span>
-            <span class="chip-tag">Power BI</span>
-            <span class="chip-tag">ETL</span>
-          </div>
-        </div>
-
-        <!-- Case 3: Automação Comercial -->
-        <div class="case-card-h">
-          <div>
-            <span class="case-tag">Automação Comercial</span>
-            <h3>Atendimento &amp; Triagem 24h</h3>
-            <p>Fluxo de automação com triagem contextual no WhatsApp que dobrou a taxa de conversão mensal de leads qualificados sem aumentar o time comercial.</p>
-          </div>
-          <div class="chips-row">
-            <span class="chip-tag">n8n</span>
-            <span class="chip-tag">WhatsApp API</span>
-            <span class="chip-tag">Webhooks</span>
-          </div>
-        </div>
-
-        <!-- Case 4: BI Corporativo -->
-        <div class="case-card-h">
-          <div>
-            <span class="case-tag">Business Intelligence</span>
-            <h3>BI em 4 Setores: 1 Método</h3>
-            <p>Modelagem e sustentação de painéis analíticos para setores de Engenharia, Fitness, Jurídico e Varejo, garantindo que o dado vire decisão diária.</p>
-          </div>
-          <div class="chips-row">
-            <span class="chip-tag">Power BI</span>
-            <span class="chip-tag">DAX</span>
-            <span class="chip-tag">SQL</span>
-          </div>
-        </div>
-
-        <!-- Case 5: Portais Web -->
-        <div class="case-card-h">
-          <div>
-            <span class="case-tag">Desenvolvimento Web</span>
-            <h3>Portais &amp; Aplicações em React</h3>
-            <p>Interfaces especializadas para suporte e acompanhamento de clientes com carregamento instantâneo, eliminando trocas de e-mails manuais.</p>
-          </div>
-          <div class="chips-row">
-            <span class="chip-tag">React</span>
-            <span class="chip-tag">Node.js</span>
-            <span class="chip-tag">CSS Vanilla</span>
-          </div>
-        </div>
-
-        <!-- Case 6: AIOS -->
-        <div class="case-card-h">
-          <div>
-            <span class="case-tag">Inteligência Artificial</span>
-            <h3>AIOS — Sistema de Agentes &amp; Automação</h3>
-            <p>Arquitetura autônoma para coleta de dados, síntese de documentos, monitoramento de rotinas e geração de protótipos em tempo real.</p>
-          </div>
-          <div class="chips-row">
-            <span class="chip-tag">Claude API</span>
-            <span class="chip-tag">Node.js</span>
-            <span class="chip-tag">Automação</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SECTION: DEMOS PÚBLICAS POR NICHO (Com Filtros para não poluir) -->
-  <section id="demos" style="background: rgba(10, 12, 16, 0.4);">
-    <div class="wrap">
-      <div class="section-title-center">
-        <div class="pill-badge">Protótipos no Ar</div>
-        <h2 class="sec-heading">DEMONSTRAÇÕES POR <span class="serif-accent">NICHO</span></h2>
-        <p style="color: var(--text-muted); font-size: 16px;">Protótipos funcionais desenvolvidos sob medida para negócios do Recife.</p>
-      </div>
-
-      <!-- Filtros por Nicho -->
-      <div class="niche-filters">
-        <button class="niche-btn active" data-niche="all">Todos os Nichos (5)</button>
-        <button class="niche-btn" data-niche="gastronomia">Gastronomia &amp; Restaurantes</button>
-        <button class="niche-btn" data-niche="saude">Saúde &amp; Clínicas</button>
-        <button class="niche-btn" data-niche="delivery">Delivery &amp; Pedidos</button>
-      </div>
-
-      <!-- Grid de Demos -->
-      <div class="demos-grid" id="demos-container">
-        
-        <!-- Demo: Wadamon -->
-        <div class="demo-item" data-category="gastronomia">
-          <div>
-            <div class="demo-head">
-              <h4>Restaurante Wadamon</h4>
-              <span class="demo-niche-badge">Gastronomia · Poço da Panela</span>
-            </div>
-            <p>Página de reservas e cardápio online com horário integrado para eliminar interrupções manuais no atendimento.</p>
-          </div>
-          <div class="demo-foot">
-            <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">Protótipo Oficial</span>
-            <a class="demo-link-btn" href="https://gabrielhenriqueneri.github.io/demos/wadamon/" target="_blank" rel="noopener">Ver demo →</a>
-          </div>
-        </div>
-
-        <!-- Demo: Burgogui -->
-        <div class="demo-item" data-category="gastronomia">
-          <div>
-            <div class="demo-head">
-              <h4>Burgogui</h4>
-              <span class="demo-niche-badge">Gastronomia · Casa Forte</span>
-            </div>
-            <p>Reserva organizada por turnos com cardápio digital otimizado para carregamento instantâneo em smartphones.</p>
-          </div>
-          <div class="demo-foot">
-            <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">Protótipo Oficial</span>
-            <a class="demo-link-btn" href="https://gabrielhenriqueneri.github.io/demos/burgogui/" target="_blank" rel="noopener">Ver demo →</a>
-          </div>
-        </div>
-
-        <!-- Demo: Picuí -->
-        <div class="demo-item" data-category="gastronomia">
-          <div>
-            <div class="demo-head">
-              <h4>Picuí Restaurante &amp; Pizzaria</h4>
-              <span class="demo-niche-badge">Gastronomia · Várzea</span>
-            </div>
-            <p>Cardápio interativo e pedidos de combos com cálculo de total automático para agilizar os fechamentos.</p>
-          </div>
-          <div class="demo-foot">
-            <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">Protótipo Oficial</span>
-            <a class="demo-link-btn" href="https://gabrielhenriqueneri.github.io/demos/picui/" target="_blank" rel="noopener">Ver demo →</a>
-          </div>
-        </div>
-
-        <!-- Demo: Dra Ana Claudia -->
-        <div class="demo-item" data-category="saude">
-          <div>
-            <div class="demo-head">
-              <h4>Dra. Ana Cláudia Monteiro</h4>
-              <span class="demo-niche-badge">Saúde · Casa Forte</span>
-            </div>
-            <p>Portal institucional com agendamento de consultas particular e apresentação de tratamentos e estrutura odontológica.</p>
-          </div>
-          <div class="demo-foot">
-            <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">Protótipo Oficial</span>
-            <a class="demo-link-btn" href="https://gabrielhenriqueneri.github.io/demos/dra-ana-claudia-monteiro/" target="_blank" rel="noopener">Ver demo →</a>
-          </div>
-        </div>
-
-        <!-- Demo: Portal da Carne de Sol -->
-        <div class="demo-item" data-category="delivery">
-          <div>
-            <div class="demo-head">
-              <h4>Portal da Carne de Sol</h4>
-              <span class="demo-niche-badge">Delivery · Cordeiro</span>
-            </div>
-            <p>Montador de pedidos de família com acompanhamentos selecionáveis direto no WhatsApp, sem taxas de marketplace.</p>
-          </div>
-          <div class="demo-foot">
-            <span style="font-family:var(--font-mono); font-size:12px; color:var(--text-muted);">Protótipo Oficial</span>
-            <a class="demo-link-btn" href="https://gabrielhenriqueneri.github.io/demos/portal-da-carne-de-sol/" target="_blank" rel="noopener">Ver demo →</a>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="text-align:center; margin-top:40px;">
-        <a class="btn btn-glass" href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">
-          Acessar Repositório Geral de Demonstrações →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Final -->
-  <section class="cta-banner-section" id="contato">
-    <div class="wrap">
-      <h2 class="cta-banner-title">
-        Vamos Construir Algo <span class="serif-accent">Incrível</span>?
-      </h2>
-      <p class="cta-banner-desc">
-        Tem um projeto, gargalo operacional ou ideia que quer tirar do papel com engenharia sólida? Me chama diretamente.
+    <!-- Bottom Bar -->
+    <div class="hero-bottom-bar">
+      <p class="hero-bottom-left">
+        a software &amp; data creator driven by crafting striking and scalable systems
       </p>
-      <a class="btn btn-purple" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener">
-        Iniciar Conversa no WhatsApp →
+
+      <a 
+        class="contact-btn" 
+        id="magnet-btn"
+        href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." 
+        target="_blank" 
+        rel="noopener"
+      >
+        Contact Me
       </a>
     </div>
   </section>
 
-  <!-- Footer Estilo Referência -->
-  <footer>
-    <div class="wrap">
-      <div class="footer-layout">
-        <div>
-          <div class="logo-box" style="margin-bottom:12px;">
-            <div class="logo-symbol">&lt;/&gt;</div>
-            <span style="font-size:18px;">Gabriel Neri</span>
-          </div>
-          <p style="color:var(--text-dim); font-size:14px; max-width:320px;">
-            Engenharia de Software, automações e IA aplicada para empresas no Recife e em todo o Brasil.
-          </p>
-        </div>
+  <!-- ==========================================================================
+       2. MARQUEE SECTION (Horizontal Image Scrub on Page Scroll)
+       ========================================================================== -->
+  <section class="marquee-section" id="marquee">
+    <!-- Row 1: Moves RIGHT on scroll -->
+    <div class="marquee-row" id="marquee-row-1">
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt="Space Voyage" loading="lazy">
+        <span class="marquee-badge">BIMAIS 3D</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif" alt="Codenest" loading="lazy">
+        <span class="marquee-badge">Python Pipeline</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif" alt="Vex Ventures" loading="lazy">
+        <span class="marquee-badge">Wadamon Demo</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif" alt="Stellar AI" loading="lazy">
+        <span class="marquee-badge">WhatsApp API</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" alt="ASME" loading="lazy">
+        <span class="marquee-badge">Burgogui</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt="Transform Data" loading="lazy">
+        <span class="marquee-badge">PostgreSQL ETL</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif" alt="Vitara" loading="lazy">
+        <span class="marquee-badge">Dra Ana Claudia</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif" alt="Terra" loading="lazy">
+        <span class="marquee-badge">Docker Deploy</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif" alt="Skyelite" loading="lazy">
+        <span class="marquee-badge">Portal Carne de Sol</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" alt="Aethera" loading="lazy">
+        <span class="marquee-badge">AIOS Core</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif" alt="DesignPro" loading="lazy">
+        <span class="marquee-badge">Power BI</span>
+      </div>
+      <!-- Tripled for Seamless Infinite Movement -->
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt="Space Voyage" loading="lazy">
+        <span class="marquee-badge">BIMAIS 3D</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif" alt="Codenest" loading="lazy">
+        <span class="marquee-badge">Python Pipeline</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif" alt="Vex Ventures" loading="lazy">
+        <span class="marquee-badge">Wadamon Demo</span>
+      </div>
+    </div>
 
-        <div class="footer-big-question">
-          Tem um <span class="serif-accent">projeto</span> em mente? Vamos conversar.
+    <!-- Row 2: Moves LEFT on scroll -->
+    <div class="marquee-row" id="marquee-row-2">
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif" alt="Stellar AI" loading="lazy">
+        <span class="marquee-badge">Picuí Pizza</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif" alt="Portfolio" loading="lazy">
+        <span class="marquee-badge">FastAPI</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" alt="Orbit Web3" loading="lazy">
+        <span class="marquee-badge">React Portals</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" alt="Nexora" loading="lazy">
+        <span class="marquee-badge">Claude Code</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" alt="EVR" loading="lazy">
+        <span class="marquee-badge">8 Fontes BI</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif" alt="Planet Orbit" loading="lazy">
+        <span class="marquee-badge">n8n Automation</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif" alt="New Era" loading="lazy">
+        <span class="marquee-badge">Tailwind &amp; JS</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif" alt="Wealth" loading="lazy">
+        <span class="marquee-badge">Analytics</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif" alt="Luminex" loading="lazy">
+        <span class="marquee-badge">GitHub Pages</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif" alt="Celestia" loading="lazy">
+        <span class="marquee-badge">3D BIM Engine</span>
+      </div>
+      <!-- Tripled -->
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif" alt="Stellar AI" loading="lazy">
+        <span class="marquee-badge">Picuí Pizza</span>
+      </div>
+      <div class="marquee-tile">
+        <img src="https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif" alt="Portfolio" loading="lazy">
+        <span class="marquee-badge">FastAPI</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. ABOUT SECTION (Character by Character Scroll Opacity Reveal)
+       ========================================================================== -->
+  <section class="about-section" id="about">
+    <!-- 4 Decorative 3D Elements in Corners -->
+    <img 
+      src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png" 
+      alt="Moon 3D" 
+      class="corner-dec dec-top-left"
+    >
+    <img 
+      src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png" 
+      alt="Lego 3D" 
+      class="corner-dec dec-top-right"
+    >
+    <img 
+      src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png" 
+      alt="3D Object" 
+      class="corner-dec dec-bottom-left"
+    >
+    <img 
+      src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png" 
+      alt="Group 3D" 
+      class="corner-dec dec-bottom-right"
+    >
+
+    <h2 class="about-heading hero-heading">About me</h2>
+
+    <!-- Animated Character Scroll Text -->
+    <p class="about-char-p" id="animated-about-text">
+      Com experiência sólida em desenvolvimento de software, automação e dados, foco em criar sistemas web modernos, pipelines de IA e integrações de alto impacto. Adoro trabalhar com empresas que buscam resolver gargalos operacionais e escalar com estabilidade. Let&apos;s build something incredible together!
+    </p>
+
+    <a 
+      class="contact-btn" 
+      href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." 
+      target="_blank" 
+      rel="noopener"
+    >
+      Contact Me
+    </a>
+  </section>
+
+  <!-- ==========================================================================
+       4. SERVICES SECTION (White Background, Huge Numbers, High Contrast)
+       ========================================================================== -->
+  <section class="services-section" id="services">
+    <h2 class="services-title">Services</h2>
+
+    <div class="services-list">
+      <!-- 01 -->
+      <div class="service-item">
+        <div class="service-num">01</div>
+        <div class="service-content">
+          <h3>Automação &amp; Pipelines</h3>
+          <p>Integração de processos comerciais, webhooks com WhatsApp e fluxos com n8n para eliminar rotinas manuais e acelerar conversão 24 horas por dia.</p>
         </div>
       </div>
 
-      <div class="footer-bottom-bar">
-        <div>© <span id="ano"></span> Gabriel Neri · Recife-PE</div>
-        
-        <div class="social-pills">
-          <a class="social-pill" href="https://wa.me/5581986717652" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="social-pill" href="https://www.linkedin.com/in/gabrielhnsilva" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="social-pill" href="https://github.com/GabrielHenriqueNeri" target="_blank" rel="noopener">GitHub</a>
-          <a class="social-pill" href="https://www.instagram.com/gabrielneri.dev" target="_blank" rel="noopener">Instagram</a>
-          <a class="social-pill" href="mailto:gabrielhenrique87.60@gmail.com">E-mail</a>
+      <!-- 02 -->
+      <div class="service-item">
+        <div class="service-num">02</div>
+        <div class="service-content">
+          <h3>Sistemas Web &amp; Portais</h3>
+          <p>Aplicações sob medida em React e Python (FastAPI/Flask) do banco de dados ao pixel, com renderização ultra-rápida, segurança e suporte contínuo.</p>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="service-item">
+        <div class="service-num">03</div>
+        <div class="service-content">
+          <h3>Business Intelligence &amp; Dados</h3>
+          <p>Modelagem relacional com PostgreSQL e painéis no Power BI que consolidam múltiplas fontes de tráfego e vendas para tomadas de decisão diretas.</p>
+        </div>
+      </div>
+
+      <!-- 04 -->
+      <div class="service-item">
+        <div class="service-num">04</div>
+        <div class="service-content">
+          <h3>IA Aplicada &amp; Agentes</h3>
+          <p>Implementação de agentes inteligentes e pipelines baseados em modelos como Claude e OpenAI para compilação de documentos e atendimento contextual.</p>
+        </div>
+      </div>
+
+      <!-- 05 -->
+      <div class="service-item">
+        <div class="service-num">05</div>
+        <div class="service-content">
+          <h3>Infraestrutura &amp; DevOps</h3>
+          <p>Deploy seguro em containers Docker, servidores VPS Linux com monitoramento, backup automático diário e páginas de alta performance no GitHub Pages.</p>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. PROJECTS SECTION (Stacking Sticky Cards com Imagens Reais do CloudFront)
+       ========================================================================== -->
+  <section class="projects-section" id="projects">
+    <h2 class="projects-heading hero-heading">Project</h2>
+
+    <div class="stack-cards-container">
+      
+      <!-- Card 01: Nextlevel Studio / BIMAIS -->
+      <div class="stack-card" style="top: 100px;">
+        <div class="card-top-row">
+          <div class="card-meta">
+            <span class="card-big-num">01</span>
+            <div class="card-titles">
+              <span>Client · Engenharia &amp; 3D</span>
+              <h3>BIMAIS — Gestão de Obras 3D</h3>
+            </div>
+          </div>
+          <a class="live-btn" href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">
+            Live Project
+          </a>
+        </div>
+
+        <div class="card-grid">
+          <div class="card-col-left">
+            <div class="img-box col1-img-top">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055344_5eff02e0-87a5-41ce-b64f-eb08da8f33db.png&w=1280&q=85" alt="BIMAIS Preview 1" loading="lazy">
+            </div>
+            <div class="img-box col1-img-bot">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055431_11d841fd-8b41-46a5-82e4-b04f2407a7d8.png&w=1280&q=85" alt="BIMAIS Preview 2" loading="lazy">
+            </div>
+          </div>
+          <div class="card-col-right">
+            <div class="img-box">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055451_e317bf2d-28d4-48cc-86b0-6f72f25b6327.png&w=1280&q=85" alt="BIMAIS Preview 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 02: Aura Brand / Wadamon & Burgogui -->
+      <div class="stack-card" style="top: 130px;">
+        <div class="card-top-row">
+          <div class="card-meta">
+            <span class="card-big-num">02</span>
+            <div class="card-titles">
+              <span>Live Demos · Gastronomia</span>
+              <h3>Wadamon &amp; Burgogui</h3>
+            </div>
+          </div>
+          <a class="live-btn" href="https://gabrielhenriqueneri.github.io/demos/wadamon/" target="_blank" rel="noopener">
+            Live Project
+          </a>
+        </div>
+
+        <div class="card-grid">
+          <div class="card-col-left">
+            <div class="img-box col1-img-top">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055654_911201c5-36d9-4bc6-bac7-331adfce159f.png&w=1280&q=85" alt="Wadamon Preview 1" loading="lazy">
+            </div>
+            <div class="img-box col1-img-bot">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055723_5ceda0b8-d9c2-4665-b2e3-83ba19ba76d1.png&w=1280&q=85" alt="Wadamon Preview 2" loading="lazy">
+            </div>
+          </div>
+          <div class="card-col-right">
+            <div class="img-box">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055753_adc5dcbd-a8e6-49c0-b43a-9b030d835cea.png&w=1280&q=85" alt="Wadamon Preview 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 03: Solaris Digital / Dra Ana Claudia & Portal Carne de Sol -->
+      <div class="stack-card" style="top: 160px;">
+        <div class="card-top-row">
+          <div class="card-meta">
+            <span class="card-big-num">03</span>
+            <div class="card-titles">
+              <span>Client · Saúde &amp; Delivery</span>
+              <h3>Dra. Ana Cláudia &amp; Portal</h3>
+            </div>
+          </div>
+          <a class="live-btn" href="https://gabrielhenriqueneri.github.io/demos/dra-ana-claudia-monteiro/" target="_blank" rel="noopener">
+            Live Project
+          </a>
+        </div>
+
+        <div class="card-grid">
+          <div class="card-col-left">
+            <div class="img-box col1-img-top">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055759_963cfb0b-4bd1-4b0f-9d0a-09bd6cf95b2f.png&w=1280&q=85" alt="Dra Ana Claudia Preview 1" loading="lazy">
+            </div>
+            <div class="img-box col1-img-bot">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_060108_438f781a-9846-4dcc-89ab-c4e6cb830f5b.png&w=1280&q=85" alt="Dra Ana Claudia Preview 2" loading="lazy">
+            </div>
+          </div>
+          <div class="card-col-right">
+            <div class="img-box">
+              <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260412_055818_9d062121-ad7e-46b9-999a-1a6a692ef1ee.png&w=1280&q=85" alt="Dra Ana Claudia Preview 3" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. FOOTER
+       ========================================================================== -->
+  <footer>
+    <h2 class="footer-title hero-heading">Let&apos;s build something incredible</h2>
+    
+    <div style="margin-bottom: 36px;">
+      <a 
+        class="contact-btn" 
+        href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." 
+        target="_blank" 
+        rel="noopener"
+      >
+        Contact Me
+      </a>
+    </div>
+
+    <div class="footer-nav">
+      <a href="https://wa.me/5581986717652" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/gabrielhnsilva" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/GabrielHenriqueNeri" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.instagram.com/gabrielneri.dev" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:gabrielhenrique87.60@gmail.com">E-mail</a>
+      <a href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">Demonstrações</a>
+    </div>
+
+    <div class="footer-bottom">
+      © <span id="ano"></span> Gabriel Neri — Recife-PE · All rights reserved.
+    </div>
   </footer>
 
+  <!-- ==========================================================================
+       INTERACTIVE JAVASCRIPT (Magnetic Hover, Scroll Scrub Marquee, Character Reveal & Stacking Cards)
+       ========================================================================== -->
   <script>
     document.getElementById('ano').textContent = new Date().getFullYear();
-    const topoBar = document.getElementById('topo-bar');
+
+    // 1. MAGNETIC HOVER EFFECT (Mouse-following Physics para o Portrait e Botão)
+    function setupMagnet(elementId, strength = 4, padding = 120) {
+      const el = document.getElementById(elementId);
+      if (!el) return;
+
+      let isHovered = false;
+
+      window.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const distanceX = e.clientX - centerX;
+        const distanceY = e.clientY - centerY;
+        const distance = Math.hypot(distanceX, distanceY);
+
+        if (distance < rect.width / 2 + padding) {
+          isHovered = true;
+          const moveX = distanceX / strength;
+          const moveY = distanceY / strength;
+          el.style.transform = `translate3d(${moveX}px, ${moveY}px, 0)`;
+        } else if (isHovered) {
+          isHovered = false;
+          el.style.transform = 'translate3d(0px, 0px, 0)';
+        }
+      });
+    }
+
+    setupMagnet('portrait-img', 3.5, 140);
+    setupMagnet('magnet-btn', 2.5, 80);
+
+    // 2. SCROLL SCRUBBING MARQUEE (Offset Calculation: (scrollY - sectionTop + innerHeight) * 0.3)
+    const marqueeSection = document.getElementById('marquee');
+    const row1 = document.getElementById('marquee-row-1');
+    const row2 = document.getElementById('marquee-row-2');
+
+    function updateMarquee() {
+      if (!marqueeSection || !row1 || !row2) return;
+      const rect = marqueeSection.getBoundingClientRect();
+      const sectionTop = rect.top + window.scrollY;
+      const offset = (window.scrollY - sectionTop + window.innerHeight) * 0.35;
+
+      row1.style.transform = `translate3d(${offset - 250}px, 0, 0)`;
+      row2.style.transform = `translate3d(${-(offset - 250)}px, 0, 0)`;
+    }
+
+    // 3. CHARACTER-BY-CHARACTER SCROLL REVEAL NO ABOUT ME
+    const aboutParagraph = document.getElementById('animated-about-text');
+    let charSpans = [];
+
+    if (aboutParagraph) {
+      const rawText = aboutParagraph.textContent.trim();
+      aboutParagraph.innerHTML = '';
+      
+      // Cria spans individuais para cada caractere
+      rawText.split('').forEach(char => {
+        const span = document.createElement('span');
+        span.className = 'char-span';
+        span.textContent = char;
+        aboutParagraph.appendChild(span);
+        charSpans.push(span);
+      });
+    }
+
+    function updateCharacterReveal() {
+      if (!aboutParagraph || charSpans.length === 0) return;
+      const rect = aboutParagraph.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Progresso de 0 a 1 quando o parágrafo passa entre 80% e 25% da tela
+      const start = viewportHeight * 0.82;
+      const end = viewportHeight * 0.25;
+      const progress = Math.min(Math.max((start - rect.top) / (start - end), 0), 1);
+
+      const totalChars = charSpans.length;
+      const charsToReveal = Math.floor(progress * totalChars);
+
+      charSpans.forEach((span, index) => {
+        if (index <= charsToReveal) {
+          span.classList.add('revealed');
+        } else {
+          span.classList.remove('revealed');
+        }
+      });
+    }
+
+    // 4. STACKING CARDS SCALE SCROLL EFFECT
+    const stackCards = document.querySelectorAll('.stack-card');
+    function updateStackingCards() {
+      stackCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        // Quando o card atinge a posição sticky, calcula um sutil scale down
+        if (rect.top <= (100 + index * 30)) {
+          const nextCard = stackCards[index + 1];
+          if (nextCard) {
+            const nextRect = nextCard.getBoundingClientRect();
+            const overlap = Math.max(0, 1 - (nextRect.top / window.innerHeight));
+            const targetScale = 1 - (stackCards.length - 1 - index) * 0.03 * Math.min(overlap * 1.5, 1);
+            card.style.transform = `scale(${targetScale})`;
+          }
+        } else {
+          card.style.transform = 'scale(1)';
+        }
+      });
+    }
+
+    // Passive Global Scroll Loop
     window.addEventListener('scroll', () => {
-      topoBar.classList.toggle('rolou', window.scrollY > 20);
+      updateMarquee();
+      updateCharacterReveal();
+      updateStackingCards();
     }, { passive: true });
 
-    // Controles do Scroll Horizontal de Cases
-    const track = document.getElementById('cases-track');
-    document.getElementById('btn-prev').addEventListener('click', () => {
-      track.scrollBy({ left: -400, behavior: 'smooth' });
-    });
-    document.getElementById('btn-next').addEventListener('click', () => {
-      track.scrollBy({ left: 400, behavior: 'smooth' });
-    });
-
-    // Filtros de Nicho nas Demos
-    const filterBtns = document.querySelectorAll('.niche-btn');
-    const demoItems = document.querySelectorAll('.demo-item');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const niche = btn.getAttribute('data-niche');
-        demoItems.forEach(item => {
-          if (niche === 'all' || item.getAttribute('data-category') === niche) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
+    // Initial trigger
+    updateMarquee();
+    updateCharacterReveal();
+    updateStackingCards();
   </script>
 </body>
 </html>
