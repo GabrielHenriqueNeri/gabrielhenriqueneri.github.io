@@ -1,0 +1,16 @@
+<svg viewBox="30 20 140 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- LOGOMARCA OFICIAL — ligadura "gn" criada pelo Gabriel (ago/2026):
+       g e n minúsculos fundidos num traço só, o n subindo acima do g.
+       Versão degradê violeta→azul (variação D, escolhida por ele). -->
+  <defs>
+    <linearGradient id="gnGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#58A6FF"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#gnGrad)" stroke-width="10" stroke-linecap="round">
+    <circle cx="76" cy="106" r="27"/>
+    <path d="M103,79 V150 C103,176 76,180 62,164"/>
+    <path d="M103,130 V68 C103,52 113,44 124,44 C135,44 145,52 145,68 V130"/>
+  </g>
+</svg>

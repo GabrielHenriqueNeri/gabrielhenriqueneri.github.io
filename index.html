@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>gabrielneri.dev · Dados & Automação</title>
+<meta name="description" content="Gabriel Neri — dev de Dados & Automação. Painéis, automações com IA e sistemas sob medida, construídos e operados de ponta a ponta. Recife-PE.">
+<meta property="og:title" content="gabrielneri.dev · Dados & Automação">
+<meta property="og:description" content="Transformo dados espalhados em decisão. Painéis, robôs de atendimento e sistemas que rodam 24/7.">
+<meta property="og:image" content="assets/og.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0A0B0E">
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0B0E;
+    --surface: #14161C;
+    --border: #262A33;
+    --text: #F2F5F7;
+    --dim: #8B949E;
+    --violeta: #A78BFA;
+    --azul: #58A6FF;
+    --verde: #3ECF8E;
+    --ink: #0A0B0E;
+    --grad: linear-gradient(135deg, #A78BFA, #58A6FF);
+    --display: 'Anton', sans-serif;
+    --body: 'Inter', 'Segoe UI', sans-serif;
+    --mono: 'JetBrains Mono', Consolas, monospace;
+    --mao: 'Caveat', cursive;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; min-width: 0; }
+  html { scroll-behavior: smooth; overflow-x: clip; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::after {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 280px 280px;
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 999;
+  }
+  ::selection { background: var(--violeta); color: var(--ink); }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+
+  /* ---------- header ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10, 11, 14, 0.82);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s;
+  }
+  header.rolou { border-color: var(--border); }
+  .header-in {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 22px; max-width: 1100px; margin: 0 auto;
+  }
+  .marca { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .marca img { height: 38px; }
+  .marca span { font-family: var(--mono); font-weight: 700; font-size: 15px; color: var(--text); }
+  .marca b { color: var(--violeta); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--body); font-weight: 700; font-size: 15px;
+    padding: 12px 22px; border-radius: 999px; text-decoration: none;
+    transition: transform .15s ease, box-shadow .15s ease;
+    cursor: pointer; border: 0;
+  }
+  .btn:active { transform: scale(.97); }
+  .btn-grad { background: var(--grad); color: var(--ink); box-shadow: 0 8px 28px rgba(139, 122, 255, .3); }
+  .btn-grad:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(139, 122, 255, .42); }
+  .btn-ghost { border: 1.5px solid var(--border); color: var(--text); background: transparent; }
+  .btn-ghost:hover { border-color: var(--violeta); }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative;
+    padding: 128px 0 56px;
+    background-image:
+      radial-gradient(circle 680px at 88% 4%, rgba(167, 139, 250, .14), transparent 62%),
+      radial-gradient(circle 560px at 4% 70%, rgba(88, 166, 255, .10), transparent 62%),
+      radial-gradient(circle, rgba(242, 245, 247, .05) 1.6px, transparent 1.6px);
+    background-size: auto, auto, 40px 40px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'gn';
+    position: absolute; right: -6%; bottom: -22%;
+    font-family: var(--display); font-size: min(58vw, 560px); line-height: 1;
+    color: transparent; -webkit-text-stroke: 2px rgba(167, 139, 250, .12);
+    transform: rotate(-6deg); pointer-events: none;
+  }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 42px; align-items: center; }
+  .status {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 13.5px; letter-spacing: 1px;
+    color: var(--dim); border: 1.5px solid var(--border);
+    border-radius: 999px; padding: 8px 16px; margin-bottom: 22px;
+  }
+  .status i {
+    width: 9px; height: 9px; border-radius: 50%; background: var(--verde);
+    animation: pulsa 1.8s infinite;
+  }
+  @keyframes pulsa { 0%,100% { box-shadow: 0 0 0 0 rgba(62,207,142,.5);} 50% { box-shadow: 0 0 0 7px rgba(62,207,142,0);} }
+  h1 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(40px, 9.6vw, 92px);
+    line-height: 1.06; text-transform: uppercase; letter-spacing: .5px;
+    overflow-wrap: break-word;
+  }
+  h1 mark {
+    background: var(--grad); color: var(--ink);
+    padding: 0 14px 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  }
+  .hero p.sub {
+    font-size: clamp(17px, 2.4vw, 20px); line-height: 1.6; color: var(--dim);
+    margin: 22px 0 30px; max-width: 560px;
+  }
+  .hero p.sub strong { color: var(--text); }
+  .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .foto-bloco { position: relative; justify-self: center; }
+  .foto-anel {
+    padding: 8px; border-radius: 50%; background: var(--grad);
+    box-shadow: 0 24px 70px rgba(120, 130, 255, .28);
+  }
+  .foto-anel img {
+    display: block; width: min(62vw, 300px); height: min(62vw, 300px);
+    border-radius: 50%; object-fit: cover;
+  }
+  .rabisco {
+    font-family: var(--mao); font-size: 26px; font-weight: 600; color: var(--violeta);
+    position: absolute; bottom: -32px; right: -8px; transform: rotate(-4deg);
+    white-space: nowrap;
+  }
+  .stats {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
+    margin-top: 52px;
+  }
+  .stat {
+    background: var(--surface); border: 1.5px solid var(--border); border-radius: 16px;
+    padding: 18px 20px;
+  }
+  .stat b { font-family: var(--display); font-weight: 400; font-size: 34px; letter-spacing: .5px;
+            background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat span { display: block; font-size: 13.5px; color: var(--dim); margin-top: 4px; line-height: 1.35; }
+
+  /* ---------- seções ---------- */
+  section { padding: 72px 0; position: relative; }
+  .kicker {
+    font-family: var(--mono); font-size: 14px; font-weight: 500;
+    letter-spacing: 4px; text-transform: uppercase; color: var(--violeta);
+    margin-bottom: 14px;
+  }
+  .kicker::before { content: '~/'; color: var(--dim); margin-right: 8px; text-transform: none; }
+  h2 {
+    font-family: var(--display); font-weight: 400;
+    font-size: clamp(32px, 6vw, 54px); line-height: 1.1;
+    text-transform: uppercase; letter-spacing: .5px; margin-bottom: 34px;
+  }
+  h2 mark { background: var(--grad); color: var(--ink); padding: 0 10px 2px;
+            -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+  .cards3 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .card {
+    background: var(--surface); border: 1.5px solid var(--border); border-radius: 20px;
+    padding: 28px; transition: transform .2s ease, border-color .2s ease;
+  }
+  .card:hover { transform: translateY(-4px); border-color: rgba(167, 139, 250, .5); }
+  .card .emoji { font-size: 30px; }
+  .card h3 { font-size: 20px; font-weight: 700; margin: 14px 0 10px; }
+  .card p { font-size: 15.5px; line-height: 1.6; color: var(--dim); }
+  .card p strong { color: var(--text); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--mono); font-size: 12.5px;
+    border: 1.5px solid var(--border); border-radius: 999px;
+    padding: 6px 13px; color: var(--dim);
+  }
+  .chip img { width: 15px; height: 15px; }
+
+  /* projetos */
+  .proj { border-left: 3px solid transparent; }
+  .proj-destaque {
+    background:
+      linear-gradient(rgba(20, 22, 28, .92), rgba(20, 22, 28, .92)),
+      repeating-linear-gradient(0deg, rgba(62, 207, 142, .10) 0 1px, transparent 1px 26px),
+      repeating-linear-gradient(90deg, rgba(62, 207, 142, .10) 0 1px, transparent 1px 26px);
+    border: 1.5px solid rgba(62, 207, 142, .38);
+    border-radius: 20px; padding: 30px; margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block; font-family: var(--mono); font-size: 12px;
+    letter-spacing: 2.5px; text-transform: uppercase; color: var(--verde);
+    margin-bottom: 12px;
+  }
+  .proj-destaque h3 { font-size: clamp(22px, 4vw, 30px); font-weight: 700; margin-bottom: 12px; }
+  .proj-destaque p { color: var(--dim); font-size: 16px; line-height: 1.65; max-width: 640px; }
+  .proj-destaque p strong { color: var(--text); }
+  .mini-stats { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 20px; }
+  .mini-stats div { font-family: var(--mono); font-size: 13.5px; color: var(--verde); }
+  .cards2 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .cards2 .tag { color: var(--azul); }
+  .cards2 h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+
+  /* método */
+  .passos { display: grid; gap: 14px; }
+  .passo {
+    display: flex; gap: 18px; align-items: flex-start;
+    background: var(--surface); border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 20px 22px;
+  }
+  .passo b {
+    font-family: var(--mono); font-weight: 700; font-size: 15px;
+    color: var(--violeta); border: 1.5px solid var(--violeta);
+    border-radius: 10px; padding: 6px 11px; flex-shrink: 0;
+  }
+  .passo div h4 { font-size: 16.5px; margin-bottom: 4px; }
+  .passo div p { font-size: 14.5px; color: var(--dim); line-height: 1.55; }
+
+  /* sobre */
+  .sobre-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 30px; align-items: center; }
+  .sobre p { font-size: 16.5px; line-height: 1.7; color: var(--dim); margin-bottom: 14px; }
+  .sobre p strong { color: var(--text); }
+  .sobre .mao { font-family: var(--mao); font-size: 27px; color: var(--violeta); transform: rotate(-1.5deg); display: inline-block; }
+
+  /* cta final */
+  .final {
+    text-align: center;
+    background-image: radial-gradient(circle 600px at 50% 0%, rgba(167, 139, 250, .13), transparent 65%);
+  }
+  .final h2 { margin-bottom: 14px; }
+  .final > .wrap > p { color: var(--dim); font-size: 17px; margin-bottom: 30px; }
+  .contatos { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 26px 0 96px; text-align: center;
+    font-family: var(--mono); font-size: 13px; color: var(--dim);
+  }
+  footer .mao { font-family: var(--mao); font-size: 19px; color: var(--violeta); }
+
+  /* barra fixa mobile de conversão */
+  .barra-zap {
+    position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 90;
+    display: flex; justify-content: center;
+  }
+  .barra-zap a { width: 100%; max-width: 440px; justify-content: center; padding: 16px 22px; font-size: 16px; }
+
+  /* reveal */
+  .rev { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s ease; }
+  .rev.viu { opacity: 1; transform: none; }
+
+  @media (min-width: 860px) {
+    .hero { padding: 168px 0 80px; }
+    .hero-grid { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+    .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .cards3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cards2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sobre-grid { grid-template-columns: 300px minmax(0, 1fr); }
+    .barra-zap { display: none; }
+    footer { padding-bottom: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header id="topo-bar">
+  <div class="header-in">
+    <a class="marca" href="#">
+      <img src="assets/logo.svg" alt="logomarca gn">
+      <span>gabrielneri<b>.dev</b></span>
+    </a>
+    <a class="btn btn-grad" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener">💬 Me chama</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status"><i></i> disponível para novos projetos</div>
+      <h1>Transformo dados espalhados em <mark>decisão</mark>.</h1>
+      <p class="sub">Painéis, automações com IA e sistemas sob medida — <strong>construídos, colocados no ar e sustentados por mim</strong>, de ponta a ponta. De Recife pro Brasil.</p>
+      <div class="ctas">
+        <a class="btn btn-grad" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener">💬 Bora conversar</a>
+        <a class="btn btn-ghost" href="#projetos">ver projetos ↓</a>
+      </div>
+    </div>
+    <div class="foto-bloco rev">
+      <div class="foto-anel"><img src="assets/foto.jpg" alt="Gabriel Neri"></div>
+      <div class="rabisco">→ prazer, Gabriel ✦</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="stats rev">
+      <div class="stat"><b>2x</b><span>leads qualificados com automação</span></div>
+      <div class="stat"><b>8→1</b><span>plataformas num painel só</span></div>
+      <div class="stat"><b>24/7</b><span>sistemas rodando em produção</span></div>
+      <div class="stat"><b>4</b><span>setores atendidos com BI</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="solucoes">
+  <div class="wrap">
+    <div class="kicker rev">o que eu resolvo</div>
+    <h2 class="rev">Em português <mark>claro</mark>:</h2>
+    <div class="cards3">
+      <div class="card rev">
+        <div class="emoji">📊</div>
+        <h3>Painéis que decidem</h3>
+        <p>Sua empresa em tempo real numa tela: vendas, caixa, metas, estoque. <strong>Chega de caçar número em planilha.</strong></p>
+        <div class="chips">
+          <span class="chip"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23A78BFA'%3E%3Cpath d='M3%2021V3h2v16h16v2H3zm5-4h3v-6H8v6zm5%200h3V7h-3v10zm5%200h3v-4h-3v4z'/%3E%3C/svg%3E">Power BI</span>
+          <span class="chip"><img src="https://cdn.simpleicons.org/postgresql/A78BFA">SQL</span>
+        </div>
+      </div>
+      <div class="card rev">
+        <div class="emoji">🤖</div>
+        <h3>Automação + IA</h3>
+        <p>Robôs que respondem clientes <strong>em segundos no WhatsApp</strong>, qualificam leads e tiram o trabalho repetitivo do seu time.</p>
+        <div class="chips">
+          <span class="chip"><img src="https://cdn.simpleicons.org/n8n/A78BFA">n8n</span>
+          <span class="chip"><img src="https://cdn.simpleicons.org/whatsapp/A78BFA">WhatsApp</span>
+        </div>
+      </div>
+      <div class="card rev">
+        <div class="emoji">🧩</div>
+        <h3>Sistemas sob medida</h3>
+        <p>Quando a planilha não dá mais conta: sistemas web feitos pro seu processo, <strong>no ar dia e noite</strong>, com segurança e backup.</p>
+        <div class="chips">
+          <span class="chip"><img src="https://cdn.simpleicons.org/python/A78BFA">Python</span>
+          <span class="chip"><img src="https://cdn.simpleicons.org/react/A78BFA">React</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <div class="kicker rev">projetos reais</div>
+    <h2 class="rev">Coisas que já <mark>entreguei</mark>.</h2>
+
+    <div class="proj-destaque rev">
+      <div class="tag">case destaque · BIMAIS Engenharia</div>
+      <h3>Sistema de gestão de obras — com a obra em 3D no navegador</h3>
+      <p>Obra, inspeções de qualidade e orçamento num lugar só. O <strong>projeto 3D abre direto na página</strong>, sem programa caro de engenharia, e cada peça clicada mostra seu status. Fui responsável por <strong>código, infraestrutura e operação</strong> — do zero à produção.</p>
+      <div class="mini-stats">
+        <div>▸ 12mil+ linhas de código</div>
+        <div>▸ 24/7 em produção</div>
+        <div>▸ backup automático diário</div>
+      </div>
+      <div class="chips">
+        <span class="chip"><img src="https://cdn.simpleicons.org/flask/3ECF8E">Python · Flask</span>
+        <span class="chip"><img src="https://cdn.simpleicons.org/postgresql/3ECF8E">PostgreSQL</span>
+        <span class="chip"><img src="https://cdn.simpleicons.org/docker/3ECF8E">Docker</span>
+        <span class="chip"><img src="https://cdn.simpleicons.org/threedotjs/3ECF8E">Three.js</span>
+      </div>
+    </div>
+
+    <div class="cards2">
+      <div class="card rev">
+        <div class="tag">gestão de leads</div>
+        <h3>8 fontes. 1 resposta.</h3>
+        <p>Os números de 8 plataformas (Meta, TikTok, GA4, Hotmart…) desembarcando num painel só, todos os dias, sozinho — que responde <strong>qual campanha dá lucro</strong>.</p>
+      </div>
+      <div class="card rev">
+        <div class="tag">automação comercial</div>
+        <h3>Leads 2x, sem contratar ninguém</h3>
+        <p>Qualificação automática + WhatsApp respondendo em segundos, 24h. O volume mensal de leads qualificados <strong>dobrou</strong>.</p>
+      </div>
+      <div class="card rev">
+        <div class="tag">business intelligence</div>
+        <h3>4 setores, 1 método</h3>
+        <p>Jurídico, educação, fitness e varejo: dados organizados virando decisão — com <strong>sustentação depois da entrega</strong>, não painel abandonado.</p>
+      </div>
+      <div class="card rev">
+        <div class="tag">desenvolvimento web</div>
+        <h3>Do dado ao pixel</h3>
+        <p>Portal de suporte e site institucional em React — o cliente acompanha tudo sozinho e <strong>ninguém mais caça e-mail perdido</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metodo">
+  <div class="wrap">
+    <div class="kicker rev">como eu trabalho</div>
+    <h2 class="rev">Simples e <mark>honesto</mark>.</h2>
+    <div class="passos">
+      <div class="passo rev"><b>01</b><div><h4>Entendo a dor de verdade</h4><p>Antes de falar de tecnologia, eu quero saber o que trava o seu dia. Se uma planilha resolver, eu te digo — e você economiza.</p></div></div>
+      <div class="passo rev"><b>02</b><div><h4>Desenho a solução inteira</h4><p>Dado, automação e tela pensados juntos — sem ping-pong entre "o cara do sistema" e "o cara do dado". Sou os dois.</p></div></div>
+      <div class="passo rev"><b>03</b><div><h4>Construo e coloco no ar</h4><p>Do código à infraestrutura, com segurança e backup desde o primeiro dia.</p></div></div>
+      <div class="passo rev"><b>04</b><div><h4>Fico por perto</h4><p>Sistema sem sustentação vira enfeite. Eu acompanho, ajusto e evoluo junto com o seu negócio.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="wrap">
+    <div class="kicker rev">quem sou eu</div>
+    <h2 class="rev">Prazer, <mark>Gabriel</mark>.</h2>
+    <div class="sobre-grid">
+      <div class="foto-bloco rev" style="justify-self: start;">
+        <div class="foto-anel"><img src="assets/foto.jpg" alt="Gabriel Neri" style="width: 240px; height: 240px;"></div>
+      </div>
+      <div class="sobre rev">
+        <p>Sou dev de <strong>Dados &amp; Automação</strong>, de Recife-PE. Comecei como estagiário de dados, fui efetivado antes do prazo e virei responsável por projetos inteiros — do código à operação.</p>
+        <p>Hoje construo painéis, automações com IA e sistemas completos, e sigo aprofundando <strong>IA aplicada</strong> a negócios reais. Tecnologia, pra mim, não é sobre código: <strong>é sobre problema resolvido</strong>.</p>
+        <p class="mao">→ e eu mostro os bastidores no Instagram ✦</p>
+        <div class="chips">
+          <span class="chip"><img src="https://cdn.simpleicons.org/python/A78BFA">Python</span>
+          <span class="chip"><img src="https://cdn.simpleicons.org/postgresql/A78BFA">PostgreSQL</span>
+          <span class="chip"><img src="https://cdn.simpleicons.org/docker/A78BFA">Docker</span>
+          <span class="chip"><img src="https://cdn.simpleicons.org/n8n/A78BFA">n8n</span>
+          <span class="chip"><img src="https://cdn.simpleicons.org/react/A78BFA">React</span>
+          <span class="chip"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23A78BFA'%3E%3Cpath d='M3%2021V3h2v16h16v2H3zm5-4h3v-6H8v6zm5%200h3V7h-3v10zm5%200h3v-4h-3v4z'/%3E%3C/svg%3E">Power BI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contato">
+  <div class="wrap">
+    <div class="kicker rev" style="text-align:center;">bora?</div>
+    <h2 class="rev">Seu negócio precisa disso? <mark>Me chama</mark>.</h2>
+    <p class="rev">Resposta rápida, papo direto e sem tecniquês — me conta o seu problema.</p>
+    <div class="contatos rev">
+      <a class="btn btn-grad" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/gabrielhnsilva" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/GabrielHenriqueNeri" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/gabrielneri.dev" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn btn-ghost" href="mailto:gabrielhenrique87.60@gmail.com">E-mail</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="ano"></span> Gabriel Neri · Recife-PE &nbsp;·&nbsp; <span class="mao">feito por mim, óbvio ✦</span>
+  </div>
+</footer>
+
+<div class="barra-zap">
+  <a class="btn btn-grad" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener">💬 Me chama no WhatsApp</a>
+</div>
+
+<script>
+  document.getElementById('ano').textContent = new Date().getFullYear();
+  const bar = document.getElementById('topo-bar');
+  addEventListener('scroll', () => bar.classList.toggle('rolou', scrollY > 10), { passive: true });
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('viu'); io.unobserve(e.target); }
+  }), { threshold: 0.12 });
+  document.querySelectorAll('.rev').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
