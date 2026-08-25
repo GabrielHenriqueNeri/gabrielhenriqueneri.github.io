@@ -16,8 +16,7 @@
     :root {
       --bg: #000000;
       --bg-card-about: #101010;
-      --bg-card-features: #1c1d22;
-      --bg-card-hover: #23252c;
+      --bg-card-features: #212121;
       --primary: #DEDBC8;
       --primary-text: #E1E0CC;
       --primary-dim: rgba(222, 219, 200, 0.7);
@@ -25,7 +24,6 @@
       --gray-dim: #6b7280;
       
       --emerald: #3ECF8E;
-      --emerald-dim: rgba(62, 207, 142, 0.12);
       
       --font-almarai: 'Almarai', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       --font-serif: 'Instrument Serif', serif;
@@ -44,7 +42,6 @@
       color: var(--primary-text);
       overflow-x: clip;
       -webkit-font-smoothing: antialiased;
-      scroll-behavior: smooth;
     }
 
     a {
@@ -70,6 +67,7 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise2)'/%3E%3C/svg%3E");
     }
 
+    /* Serif Accent Italic */
     .font-serif-italic {
       font-family: var(--font-serif);
       font-style: italic;
@@ -153,6 +151,11 @@
         padding: 12px 32px;
       }
     }
+    @media (min-width: 1024px) {
+      .navbar-pill {
+        gap: 52px;
+      }
+    }
 
     .navbar-pill a {
       font-size: 11px;
@@ -204,6 +207,13 @@
       }
     }
 
+    /* Giant Title com Asterisco */
+    .hero-title-wrap {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
     .hero-giant-title {
       font-size: clamp(4rem, 20vw, 240px);
       font-weight: 700;
@@ -226,6 +236,7 @@
       font-weight: 400;
     }
 
+    /* Coluna Direita */
     .hero-right-col {
       display: flex;
       flex-direction: column;
@@ -241,6 +252,7 @@
       max-width: 440px;
     }
 
+    /* Botão CTA Pill "Iniciar conversa" */
     .cta-pill-btn {
       display: inline-flex;
       align-items: center;
@@ -327,7 +339,7 @@
       font-weight: 400;
       line-height: 1.1;
       color: var(--primary-text);
-      max-width: 840px;
+      max-width: 820px;
       margin: 0 auto 48px;
     }
 
@@ -339,11 +351,12 @@
       padding: 0 4px;
     }
 
+    /* Paragraph com efeito de revelação caractere a caractere */
     .about-reveal-p {
       color: var(--primary);
       font-size: clamp(0.95rem, 1.6vw, 1.25rem);
       line-height: 1.8;
-      max-width: 700px;
+      max-width: 680px;
       margin: 0 auto;
     }
 
@@ -359,24 +372,24 @@
     }
 
     /* ==========================================================================
-       SECTION 3: FEATURES (Cards de Arquiteturas, Sistemas e Demos Dinâmicas)
+       SECTION 3: FEATURES (4-Column Grid, Video Canvas & Interactive Cards)
        ========================================================================== */
     .features-section {
       min-height: 100vh;
       background-color: #000000;
-      padding: 80px 16px 130px;
+      padding: 80px 16px 120px;
       position: relative;
     }
 
     @media (min-width: 768px) {
       .features-section {
-        padding: 110px 24px 150px;
+        padding: 110px 24px 140px;
       }
     }
 
     .features-header {
-      max-width: 1160px;
-      margin: 0 auto 52px;
+      max-width: 1140px;
+      margin: 0 auto 56px;
       padding: 0 8px;
     }
 
@@ -399,7 +412,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 16px;
-      max-width: 1160px;
+      max-width: 1140px;
       margin: 0 auto;
     }
 
@@ -412,77 +425,94 @@
 
     @media (min-width: 1024px) {
       .features-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        grid-template-columns: repeat(4, 1fr);
+        height: 500px;
+        gap: 12px;
       }
     }
 
     .feature-card {
       background-color: var(--bg-card-features);
       border-radius: 1.25rem;
-      padding: 32px 28px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.05);
       position: relative;
       overflow: hidden;
-      transition: all 0.3s ease;
-      min-height: 440px;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
     .feature-card:hover {
-      background-color: var(--bg-card-hover);
       transform: translateY(-4px);
-      border-color: rgba(222, 219, 200, 0.35);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      border-color: rgba(222, 219, 200, 0.3);
     }
 
-    .card-top-tag-row {
+    /* Card 1: Video Canvas Card */
+    .feature-video-card {
+      padding: 0;
+      background: #0d0d0d;
+    }
+
+    .feature-video-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      align-items: flex-end;
+      padding: 28px;
+    }
+
+    .video-card-text {
+      color: var(--primary-text);
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    /* Cards 2, 3, 4 */
+    .card-top-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      overflow: hidden;
       margin-bottom: 20px;
+      background: #181818;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .card-badge {
-      font-family: var(--font-mono);
-      font-size: 11.5px;
-      font-weight: 600;
-      color: var(--emerald);
-      background: var(--emerald-dim);
-      padding: 4px 10px;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .card-num {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      color: var(--gray-dim);
-      font-weight: 600;
+    .card-top-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .card-title-group h3 {
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--primary-text);
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
+      margin-bottom: 20px;
     }
 
-    .card-desc {
-      font-size: 13.5px;
-      color: var(--gray-muted);
-      line-height: 1.5;
-      margin-bottom: 22px;
+    .card-title-group h3 span {
+      color: var(--gray-dim);
+      font-size: 15px;
+      margin-left: 6px;
+      font-weight: 400;
     }
 
     .checklist-items {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
       margin-bottom: 28px;
     }
 
@@ -491,14 +521,14 @@
       align-items: flex-start;
       gap: 10px;
       font-size: 13.5px;
-      color: var(--primary-dim);
+      color: var(--gray-muted);
       line-height: 1.45;
     }
 
     .check-icon {
-      width: 15px;
-      height: 15px;
-      color: var(--emerald);
+      width: 16px;
+      height: 16px;
+      color: var(--primary);
       flex-shrink: 0;
       margin-top: 2px;
     }
@@ -507,13 +537,11 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       color: var(--primary);
       transition: gap 0.2s;
       margin-top: auto;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .card-learn-more svg {
@@ -527,47 +555,6 @@
 
     .card-learn-more:hover svg {
       transform: rotate(0deg);
-    }
-
-    /* Lista Dinâmica de Demos */
-    .demos-dynamic-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-bottom: 20px;
-      max-height: 250px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .demo-pill-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-size: 13px;
-      color: var(--primary-text);
-      transition: all 0.2s ease;
-    }
-
-    .demo-pill-link:hover {
-      background: rgba(62, 207, 142, 0.1);
-      border-color: var(--emerald);
-      color: #ffffff;
-      transform: translateX(3px);
-    }
-
-    .demo-pill-niche {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--emerald);
-      background: rgba(62, 207, 142, 0.15);
-      padding: 2px 6px;
-      border-radius: 4px;
-      text-transform: uppercase;
     }
 
     /* ==========================================================================
@@ -640,8 +627,8 @@
       <nav class="navbar-pill">
         <a href="#inicio">Início</a>
         <a href="#sobre">História</a>
-        <a href="#sistemas">Sistemas</a>
-        <a href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">Demos no Ar</a>
+        <a href="#solucoes">Sistemas</a>
+        <a href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">Demos</a>
         <a href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Vi%20seu%20portf%C3%B3lio%20e%20quero%20conversar." target="_blank" rel="noopener">Contato</a>
       </nav>
 
@@ -650,7 +637,7 @@
         <div class="hero-grid">
           
           <!-- Coluna 8: Título Gigante "Gabriel*" -->
-          <div>
+          <div class="hero-title-wrap">
             <h1 class="hero-giant-title">
               Gabriel<span class="hero-asterisk">*</span>
             </h1>
@@ -702,237 +689,135 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 3: SISTEMAS & DEMONSTRAÇÕES (Grade Completa com Vários Projetos)
+       SECTION 3: FEATURES (4-Column Grid com Vídeo, Checklist e Demos)
        ========================================================================== -->
-  <section class="features-section" id="sistemas">
+  <section class="features-section" id="solucoes">
     <div class="bg-noise"></div>
 
     <div class="features-header">
-      <h2 class="features-title-1">Sistemas, produtos e integrações em produção.</h2>
-      <h3 class="features-title-2">Construído com código próprio. Sustentado com rigor técnico.</h3>
+      <h2 class="features-title-1">Sistemas em produção para empresas que querem escalar.</h2>
+      <h3 class="features-title-2">Construído com código próprio. Sustentado com rigor.</h3>
     </div>
 
     <div class="features-grid">
       
-      <!-- Card 1: BIMAIS Engenharia (01) -->
+      <!-- Card 1: Video Canvas Card -->
+      <div class="feature-card feature-video-card">
+        <video 
+          class="feature-video-bg"
+          autoplay 
+          loop 
+          muted 
+          playsinline
+        >
+          <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260406_133058_0504132a-0cf3-4450-a370-8ea3b05c95d4.mp4" type="video/mp4">
+        </video>
+        <div class="video-card-overlay">
+          <div class="video-card-text">
+            Do dado bruto à interface funcional.
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: BIMAIS Engenharia (01) -->
       <div class="feature-card">
         <div>
-          <div class="card-top-tag-row">
-            <span class="card-badge">Engenharia 3D</span>
-            <span class="card-num">01</span>
+          <div class="card-top-icon">
+            <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171918_4a5edc79-d78f-4637-ac8b-53c43c220606.png&w=1280&q=85" alt="BIMAIS">
           </div>
           
           <div class="card-title-group">
-            <h3>BIMAIS — Gestão 3D</h3>
+            <h3>BIMAIS 3D <span>(01)</span></h3>
           </div>
-          <p class="card-desc">Plataforma web de acompanhamento e medição de obras com modelos IFC renderizados direto na tela.</p>
 
           <div class="checklist-items">
             <div class="check-item">
               <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Visualizador 3D BIM no navegador sem plugins</span>
+              <span>Visualizador 3D BIM (IFC) no navegador</span>
             </div>
             <div class="check-item">
               <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>12.000+ linhas de código em produção 24/7</span>
+              <span>12.000+ linhas de código em produção</span>
             </div>
             <div class="check-item">
               <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Python Flask, PostgreSQL e Three.js</span>
+              <span>Docker 24/7 com backup diário automático</span>
+            </div>
+            <div class="check-item">
+              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Python, PostgreSQL e Three.js</span>
             </div>
           </div>
         </div>
 
-        <a class="card-learn-more" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Quero%20saber%20mais%20sobre%20o%20case%20da%20BIMAIS." target="_blank" rel="noopener">
-          <span>Detalhes do sistema</span>
+        <a class="card-learn-more" href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">
+          <span>Ver projetos</span>
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
 
-      <!-- Card 2: Pipeline de 8 Fontes (02) -->
+      <!-- Card 3: Automação Comercial & WhatsApp (02) -->
       <div class="feature-card">
         <div>
-          <div class="card-top-tag-row">
-            <span class="card-badge">Data Engineering</span>
-            <span class="card-num">02</span>
+          <div class="card-top-icon">
+            <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171741_ed9845ab-f5b2-4018-8ce7-07cc01823522.png&w=1280&q=85" alt="Automação">
           </div>
           
           <div class="card-title-group">
-            <h3>Pipeline de 8 Fontes</h3>
+            <h3>Automações <span>(02)</span></h3>
           </div>
-          <p class="card-desc">Central unificada de ingestão diária de métricas de tráfego, conversão e receita multi-plataforma.</p>
 
           <div class="checklist-items">
             <div class="check-item">
               <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Conecta Meta Ads, TikTok, GA4 e Hotmart</span>
-            </div>
-            <div class="check-item">
-              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Cálculo automático de ROI real por campanha</span>
-            </div>
-            <div class="check-item">
-              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Pipelines em Python com banco PostgreSQL</span>
-            </div>
-          </div>
-        </div>
-
-        <a class="card-learn-more" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Quero%20um%20pipeline%20de%20dados%20para%20minha%20empresa." target="_blank" rel="noopener">
-          <span>Saber mais</span>
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-      </div>
-
-      <!-- Card 3: Automações Comerciais WhatsApp (03) -->
-      <div class="feature-card">
-        <div>
-          <div class="card-top-tag-row">
-            <span class="card-badge">Automação Comercial</span>
-            <span class="card-num">03</span>
-          </div>
-          
-          <div class="card-title-group">
-            <h3>Automações WhatsApp</h3>
-          </div>
-          <p class="card-desc">Workflows inteligentes de atendimento e qualificação de leads 24h sem aumentar equipe.</p>
-
-          <div class="checklist-items">
-            <div class="check-item">
-              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Triagem e agendamento instantâneo via API</span>
-            </div>
-            <div class="check-item">
-              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Dobra o volume mensal de leads fechados</span>
+              <span>Triagem inteligente de leads no WhatsApp 24h</span>
             </div>
             <div class="check-item">
               <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
               <span>Workflows em n8n e webhooks customizados</span>
             </div>
+            <div class="check-item">
+              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>Dobra o volume de fechamentos comerciais</span>
+            </div>
           </div>
         </div>
 
-        <a class="card-learn-more" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Quero%20uma%20automa%C3%A7%C3%A3o%20de%20WhatsApp." target="_blank" rel="noopener">
-          <span>Automatizar agora</span>
+        <a class="card-learn-more" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Quero%20uma%20automa%C3%A7%C3%A3o%20para%20minha%20empresa." target="_blank" rel="noopener">
+          <span>Automatizar</span>
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
 
-      <!-- Card 4: Portais Web & Dashboards em React (04) -->
+      <!-- Card 4: Demonstrações no Ar (03) -->
       <div class="feature-card">
         <div>
-          <div class="card-top-tag-row">
-            <span class="card-badge">Web &amp; BI</span>
-            <span class="card-num">04</span>
+          <div class="card-top-icon">
+            <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260405_171809_f56666dc-c099-4778-ad82-9ad4f209567b.png&w=1280&q=85" alt="Demos">
           </div>
           
           <div class="card-title-group">
-            <h3>Portais Web &amp; BI</h3>
+            <h3>Demos no Ar <span>(03)</span></h3>
           </div>
-          <p class="card-desc">Aplicações especializadas em React e dashboards em Power BI para sustentação de decisões.</p>
 
           <div class="checklist-items">
             <div class="check-item">
               <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Portais com autenticação e suporte integrado</span>
+              <span>Wadamon · Gastronomia &amp; Reservas</span>
             </div>
             <div class="check-item">
               <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Dashboards corporativos em 4 setores</span>
+              <span>Dra. Ana Cláudia · Agendamento Odonto</span>
             </div>
             <div class="check-item">
               <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Sustentação contínua pós-entrega</span>
+              <span>Portal da Carne de Sol · Delivery WhatsApp</span>
             </div>
           </div>
         </div>
 
-        <a class="card-learn-more" href="https://wa.me/5581986717652?text=Oi%20Gabriel!%20Quero%20um%20portal%20ou%20dashboard%20para%20minha%20empresa." target="_blank" rel="noopener">
-          <span>Solicitar proposta</span>
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-      </div>
-
-      <!-- Card 5: AIOS (05) -->
-      <div class="feature-card">
-        <div>
-          <div class="card-top-tag-row">
-            <span class="card-badge">IA &amp; Agentes</span>
-            <span class="card-num">05</span>
-          </div>
-          
-          <div class="card-title-group">
-            <h3>AIOS — Sistema de Agentes</h3>
-          </div>
-          <p class="card-desc">Arquitetura própria de agentes inteligentes para orquestração de rotinas e geração de código.</p>
-
-          <div class="checklist-items">
-            <div class="check-item">
-              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Coleta automatizada de dados e síntese</span>
-            </div>
-            <div class="check-item">
-              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Orquestração com modelos Claude e OpenAI</span>
-            </div>
-            <div class="check-item">
-              <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-              <span>Execução local segura e monitorada</span>
-            </div>
-          </div>
-        </div>
-
-        <a class="card-learn-more" href="https://github.com/GabrielHenriqueNeri/aios" target="_blank" rel="noopener">
-          <span>Ver repositório</span>
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-        </a>
-      </div>
-
-      <!-- Card 6: Demos Públicas no Ar (Sincronizadas em Tempo Real com AIOS) -->
-      <div class="feature-card" style="background: #181a20; border-color: rgba(62, 207, 142, 0.3);">
-        <div>
-          <div class="card-top-tag-row">
-            <span class="card-badge">Ao Vivo no GitHub</span>
-            <span class="card-num">06</span>
-          </div>
-          
-          <div class="card-title-group">
-            <h3>Demonstrações no Ar</h3>
-          </div>
-          <p class="card-desc">Protótipos funcionais gerenciados e publicados pelo AIOS. Clique para abrir:</p>
-
-          <!-- Lista Dinâmica de Demos Ativas -->
-          <div class="demos-dynamic-list" id="demosList">
-            <a class="demo-pill-link" href="https://gabrielhenriqueneri.github.io/demos/wadamon/" target="_blank" rel="noopener">
-              <span>Restaurante Wadamon</span>
-              <span class="demo-pill-niche">Gastronomia</span>
-            </a>
-            <a class="demo-pill-link" href="https://gabrielhenriqueneri.github.io/demos/dra-ana-claudia-monteiro/" target="_blank" rel="noopener">
-              <span>Dra. Ana Cláudia Monteiro</span>
-              <span class="demo-pill-niche">Saúde</span>
-            </a>
-            <a class="demo-pill-link" href="https://gabrielhenriqueneri.github.io/demos/portal-da-carne-de-sol/" target="_blank" rel="noopener">
-              <span>Portal da Carne de Sol</span>
-              <span class="demo-pill-niche">Delivery</span>
-            </a>
-            <a class="demo-pill-link" href="https://gabrielhenriqueneri.github.io/demos/burgogui/" target="_blank" rel="noopener">
-              <span>Burgogui Coreano</span>
-              <span class="demo-pill-niche">Gastronomia</span>
-            </a>
-            <a class="demo-pill-link" href="https://gabrielhenriqueneri.github.io/demos/picui/" target="_blank" rel="noopener">
-              <span>Picuí Restaurante</span>
-              <span class="demo-pill-niche">Pizzaria</span>
-            </a>
-            <a class="demo-pill-link" href="https://gabrielhenriqueneri.github.io/demos/mood-beauty-spa/" target="_blank" rel="noopener">
-              <span>Mood Beauty Spa</span>
-              <span class="demo-pill-niche">Estética</span>
-            </a>
-          </div>
-        </div>
-
-        <a class="card-learn-more" href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener" style="color:var(--emerald);">
-          <span>Abrir Galeria de Demos</span>
+        <a class="card-learn-more" href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">
+          <span>Acessar demos</span>
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
@@ -965,7 +850,7 @@
         <a href="https://github.com/GabrielHenriqueNeri" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.instagram.com/gabrielneri.dev" target="_blank" rel="noopener">Instagram</a>
         <a href="mailto:gabrielhenrique87.60@gmail.com">E-mail</a>
-        <a href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">Galeria de Demos</a>
+        <a href="https://gabrielhenriqueneri.github.io/demos/" target="_blank" rel="noopener">Demos Públicas</a>
       </div>
 
       <div class="footer-copy">
@@ -975,7 +860,7 @@
   </footer>
 
   <!-- ==========================================================================
-       INTERACTIVE SCRIPT (Character Reveal & Sincronização Dinâmica com Demos)
+       INTERACTIVE SCRIPT (Character Reveal on Scroll)
        ========================================================================== -->
   <script>
     document.getElementById('ano').textContent = new Date().getFullYear();
@@ -1002,6 +887,7 @@
       const rect = revealParagraph.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
+      // Calcula progresso relativo do parágrafo na tela
       const start = viewportHeight * 0.82;
       const end = viewportHeight * 0.25;
       const progress = Math.min(Math.max((start - rect.top) / (start - end), 0), 1);
